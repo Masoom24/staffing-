@@ -1,0 +1,171 @@
+.candidate-register {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .register-left {
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-right {
+    width: 50%;
+    margin-left: 50%;
+    height: auto;
+    overflow-y: auto;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .registeration-form {
+    width: 100%;
+    max-width: 450px;
+    background-color: transparent;
+    border-radius: 10px;
+    text-align: left;
+    margin-top: 100px;
+    box-shadow: none;
+  }
+  
+  .registeration-form h1 {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-row {
+    margin-bottom: 20px;
+  }
+  
+  .form-row label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .form-row input,
+  .form-row select {
+    width: 100%;
+    background-color: #eaeaea;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+  .form-row select:focus,
+  .form-row textarea:focus {
+    outline: none;
+    border-color: #96be25;
+    box-shadow: 0px 0px 5px rgba(150, 190, 37, 0.5);
+  }
+  
+  #names {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  
+  .work-status-cards {
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+    text-align: left;
+  }
+  
+  .work-status-cards .card {
+    width: 48%;
+    background-color: #fff;
+    padding: 10px;
+    border: 2px dotted #eaeaea;
+    border-radius: 6px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .work-status-cards .card:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .work-status-cards .card strong {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .work-status-cards .card label p {
+    text-align: left;
+  }
+  .work-status-cards .card label img {
+    width: 20px;
+    height: 20.46px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .candidate-register {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .register-left {
+      position: relative;
+      width: 100%;
+      height: auto;
+      box-shadow: none;
+    }
+  
+    .register-right {
+      margin-left: 0;
+      width: 100%;
+      height: auto;
+      overflow-y: visible;
+      padding: 20px;
+    }
+  
+    .registeration-form {
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    form {
+      padding: 20px;
+    }
+  
+    .form-row label {
+      font-size: 12px;
+    }
+  
+    .form-row input,
+    .form-row select {
+      font-size: 12px;
+      padding: 8px;
+    }
+  }
+  
