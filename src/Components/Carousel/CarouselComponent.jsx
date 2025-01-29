@@ -15,12 +15,13 @@ const CarouselComponent = () => {
     pauseOnHover: true, 
     swipeToSlide: true, 
     effect: "scrollx", 
+    
   };
 
   return (
     <div className="carousel-container">
       <Carousel {...settings}>
-        <div className="carousel-item" style={{display:"flex",}}>
+        <div className="carousel-item mb-10" style={{display:"flex", marginBottom:"20px"}}>
           <img src={carousel1} alt="carousel1" />
           <div className="carousel-text">
             <h1>Find Your Dream Job</h1>

@@ -19,7 +19,7 @@ function QualificationForm({
                 value={formData.board}
                 onChange={handleInputChange}
                 placeholder="Enter your board name"
-                className="input input-bordered w-full"
+                className="input w-full border-0 bg-gray-200"
                 required
               />
             </div>
@@ -31,7 +31,7 @@ function QualificationForm({
                 value={formData.school}
                 onChange={handleInputChange}
                 placeholder="Enter your school name"
-                className="input input-bordered w-full"
+                className="input w-full border-0 bg-gray-200"
                 required
               />
             </div>
@@ -43,7 +43,7 @@ function QualificationForm({
                 value={formData.percentage}
                 onChange={handleInputChange}
                 placeholder="Enter your percentage"
-                className="input input-bordered w-full"
+                className="input w-full border-0 bg-gray-200"
                 required
               />
             </div>
@@ -55,7 +55,7 @@ function QualificationForm({
                 value={formData.passoutYear}
                 onChange={handleInputChange}
                 placeholder="Enter your passout year"
-                className="input input-bordered w-full"
+                className="input w-full border-0 bg-gray-200"
                 required
               />
             </div>
@@ -80,7 +80,7 @@ function QualificationForm({
                 name="degree"
                 value={formData.degree}
                 onChange={handleInputChange}
-                className="select select-bordered w-full"
+                className="select w-full border-0 bg-gray-200"
                 required
               >
                 <option value="" disabled>
@@ -101,7 +101,7 @@ function QualificationForm({
                 value={formData.specialization}
                 onChange={handleInputChange}
                 placeholder="Enter your specialization"
-                className="input input-bordered w-full"
+                className="input w-full border-0 bg-gray-200"
                 required
               />
             </div>
@@ -113,7 +113,7 @@ function QualificationForm({
                 value={formData.university}
                 onChange={handleInputChange}
                 placeholder="Enter your university name"
-                className="input input-bordered w-full"
+                className="input w-full border-0 bg-gray-200"
                 required
               />
             </div>
@@ -123,7 +123,7 @@ function QualificationForm({
                 name="courseType"
                 value={formData.courseType}
                 onChange={handleInputChange}
-                className="select select-bordered w-full"
+                className="select w-full border-0 bg-gray-200"
                 required
               >
                 <option value="" disabled>
@@ -137,12 +137,12 @@ function QualificationForm({
             <div>
               <label className="label">Passout Year</label>
               <input
-                type="number"
+                type="text"
                 name="passoutYear"
                 value={formData.passoutYear}
                 onChange={handleInputChange}
                 placeholder="Enter your passout year"
-                className="input input-bordered w-full"
+                className="input w-full border-0 bg-gray-200"
                 required
               />
             </div>
@@ -161,7 +161,7 @@ function QualificationForm({
           name="education"
           value={formData.education}
           onChange={handleInputChange}
-          className="select select-bordered w-full bg-slate-200"
+          className="select w-full border-0 bg-gray-200"
           required
         >
           <option value="" disabled>
@@ -176,10 +176,10 @@ function QualificationForm({
       </div>
       {renderFields()}
       <div className="flex justify-end space-x-2">
-        <button type="button" onClick={handleDiscard} className="btn btn-outline">
+        <button type="button" onClick={handleDiscard} className="btn btn-outline border-lime-400 text-lime-400">
           Discard
         </button>
-        <button type="submit" className="btn btn-primary bg-lime-500 border-0">
+        <button type="submit" className="btn btn-primary bg-lime-400 border-0 text-white">
           Submit
         </button>
       </div>

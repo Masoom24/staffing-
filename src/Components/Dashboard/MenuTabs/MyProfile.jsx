@@ -1,5 +1,6 @@
 import React from "react";
 import { Avatar, LinearProgress } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
 import {
   Email,
   Phone,
@@ -66,7 +67,7 @@ function MyProfile() {
               <School /> Qualifications
             </h2>
 
-            <UIButton text="Add Qualification" />
+            <UIButton startIcon={<AddIcon/>}></UIButton>
           </div>
           <div className="mt-4 text-center text-gray-500">No data found.</div>
         </div>
@@ -79,7 +80,7 @@ function MyProfile() {
             <h2 className="text-xl font-bold flex items-center gap-2">
               <Work /> Experience
             </h2>
-            <UIButton text="Add Experience" />
+            <UIButton startIcon={<AddIcon/>}></UIButton>
           </div>
           <div className="mt-4 text-center text-gray-500">No data found.</div>
         </div>

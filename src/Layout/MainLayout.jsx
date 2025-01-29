@@ -29,6 +29,7 @@ function MainLayout() {
             startIcon={<EmployeeIcon />}
             style={{ borderRadius: "50px" }}
             className="m-2"
+            onClick={() => navigate("/employee-login")}
           >
             <h1 className="font-bold hidden sm:block">Employee</h1>
           </UIButton>

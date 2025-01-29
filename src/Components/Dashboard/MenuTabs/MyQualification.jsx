@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import UIButton from "../../../Common/UIButton";
 import QualificationForm from "./QualificationForm";
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import CloseIcon from "@mui/icons-material/Close";
 
 function MyQualification() {
   const [showForm, setShowForm] = useState(false);
@@ -68,7 +69,7 @@ function MyQualification() {
               onClick={() => setShowForm(false)}
               className="btn btn-sm btn-circle absolute right-2 top-2"
             >
-              ✕
+              <CloseIcon />
             </button>
             <h3 className="font-bold text-lg">Add Qualification</h3>
             <QualificationForm
@@ -104,17 +105,14 @@ function MyQualification() {
               <h1>Passout Year: {qualification.passoutYear}</h1>
             )}
             <div className="flex justify-end space-x-2 mt-2">
-              <button
-                onClick={() => handleEdit(index)}
-                className="btn btn-sm"
-              >
-                <EditIcon/>
+              <button onClick={() => handleEdit(index)} className="btn btn-sm">
+                <EditIcon />
               </button>
               <button
                 onClick={() => handleDelete(index)}
                 className="btn btn-sm"
               >
-                <DeleteIcon/>
+                <DeleteIcon />
               </button>
             </div>
           </div>
