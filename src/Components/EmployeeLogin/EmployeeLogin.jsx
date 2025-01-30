@@ -4,12 +4,12 @@ import GoogleIcon from "@mui/icons-material/Google";
 
 function EmployeeLogin() {
   return (
-    <div className="flex flex-row w-full h-screen">
-      <div className="flex w-200 justify-center items-center">
+    <div className="flex flex-col md:flex-row w-full h-screen">
+      <div className="flex justify-center items-center w-full md:w-1/2">
         <CarouselComponent />
       </div>
-      <div className="flex w-200 bg-gray-100 justify-center items-center">
-        <div className="flex justify-center w-120 bg-white rounded-md shadow-lg">
+      <div className="flex justify-center items-center w-full md:w-1/2 bg-gray-100">
+        <div className="w-full md:w-120 bg-white rounded-md shadow-lg p-4">
           <form action="">
             <h1 className="text-center text-lg font-bold mt-6">
               Hi, Welcome Back👋
@@ -30,7 +30,7 @@ function EmployeeLogin() {
                 Password
               </label>
               <input
-                type="email"
+                type="password" // changed to 'password' instead of 'email'
                 className="p-2 rounded-md"
                 placeholder="Password"
                 required
@@ -46,16 +46,18 @@ function EmployeeLogin() {
               </a>
             </div>
             <div className="flex flex-col m-6">
-              <button className="btn btn-primary mb-4">Login</button>
+              <button className="btn bg-lime-400 text-white mb-4 w-full">Login</button>
               <hr />
-              <button className="btn  mt-4">
+              <button className="btn w-full mt-4 flex justify-center items-center">
                 <GoogleIcon className="mr-2" /> Login with Google
               </button>
 
-              <div className="mt-4">
+              <div className="mt-4 text-center">
                 <p>
-                  Dont have an account?{" "}
-                  <a href="/employee-registration">Sign Up</a>
+                  Don't have an account?{" "}
+                  <a href="/employee-registration" className="text-blue-600">
+                    Sign Up
+                  </a>
                 </p>
               </div>
             </div>
