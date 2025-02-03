@@ -5,7 +5,7 @@ import AuthorizedPerson from "./Steps/AuthorizedPerson";
 import LoginDetails from "./Steps/LoginDetails";
 import Preview from "./Steps/Preview";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import UIButton from "../../Common/UIButton";
+import UIButton from "../../../Common/UIButton";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 

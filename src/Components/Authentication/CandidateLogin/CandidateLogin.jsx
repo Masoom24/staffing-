@@ -1,6 +1,6 @@
 import React from "react";
 import "./CandidateLogin.css";
-import CarouselComponent from "../Carousel/CarouselComponent";
+import CarouselComponent from "../../../Common/Carousel/CarouselComponent";
 import Login from "./LoginForm/Login";
 
 function CandidateLogin() {

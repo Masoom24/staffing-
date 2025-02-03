@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Experienced from "../../../assets/Experienced.png";
-import Freshers from "../../../assets/Freshers.png";
-import CarouselComponent from "../../Carousel/CarouselComponent";
-import UIButton from "../../../Common/UIButton";
+import Experienced from "../../../../assets/Experienced.png";
+import Freshers from "../../../../assets/Freshers.png";
+import CarouselComponent from "../../../../Common/Carousel/CarouselComponent";
+import UIButton from "../../../../Common/UIButton";
 import "./SignUp.css"
 
 function SignUp() {

@@ -1,5 +1,5 @@
 import React from "react";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -7,30 +7,35 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 function JobPost() {
   const JobPost = [
     {
+      id: 1,
       jobProfile: "Technical",
       industry: "Oil/Gas",
       postDate: "26/01/2025",
       desc: "Develop React Native applications for both iOS and Android Leverage native APIs for deep integrations with both platforms",
     },
     {
+      id: 2,
       jobProfile: "SDE-1",
       industry: "Software Development",
       postDate: "26/01/2025",
       desc: "Develop React Native applications for both iOS and Android Leverage native APIs for deep integrations with both platforms",
     },
     {
+      id: 3,
       jobProfile: "Frontend Developer",
       industry: "Oil/Gas",
       postDate: "26/01/2025",
       desc: "Develop React Native applications for both iOS and Android Leverage native APIs for deep integrations with both platforms",
     },
     {
+      id: 4,
       jobProfile: "Python Developer",
       industry: "Oil/Gas",
       postDate: "26/01/2025",
       desc: "Develop React Native applications for both iOS and Android Leverage native APIs for deep integrations with both platforms",
     },
     {
+      id: 5,
       jobProfile: "Java Developer",
       industry: "Oil/Gas",
       postDate: "26/01/2025",
@@ -67,9 +72,12 @@ function JobPost() {
         return (
           <div className="card card-border bg-base-100 mt-2 w-full">
             <div className="card-body">
+                <h2>JobID: {job.id}</h2>
               <div className="flex justify-between">
                 <h2 className="card-title text-lime-500">{job.jobProfile}</h2>
-                <ArrowForwardIosIcon />
+                <button onClick={()=>{alert("Job description clicked")}}>
+                  <NavigateNextIcon />
+                </button>
               </div>
 
               <p className="card-title bg-white">{job.industry}</p>

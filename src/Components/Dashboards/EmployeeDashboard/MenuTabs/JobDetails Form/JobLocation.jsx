@@ -1,5 +1,5 @@
 import React from 'react';
-import InputField from "../../../../Common/InputField";
+import InputField from "../../../../../Common/InputField";
 
 
 const JobLocation = ({ jobDetails, setJobDetails, setStep}) => {

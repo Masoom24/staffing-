@@ -91,7 +91,7 @@ function Dashboard() {
           {activeTab === "Dashboard" && <DashboardHome />}
           {activeTab === "Search Jobs" && <SearchJobs />}
           {activeTab === "My Interviews" && <MyInterview />}
-          {activeTab === "My Qualification" && <MyQualification />}
+          {activeTab === "My Qualification" && <MyQualification/>}
           {activeTab === "My Experience" && <MyExperience />}
           {activeTab === "My Profile" && <MyProfile />}
         </div>

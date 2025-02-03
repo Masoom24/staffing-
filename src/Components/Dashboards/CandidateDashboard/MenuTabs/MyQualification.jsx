@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UIButton from "../../../Common/UIButton";
+import UIButton from "../../../../Common/UIButton";
 import QualificationForm from "./QualificationForm";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";

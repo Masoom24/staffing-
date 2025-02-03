@@ -1,5 +1,5 @@
 import React from "react";
-import CarouselComponent from "../Carousel/CarouselComponent";
+import CarouselComponent from "../../../Common/Carousel/CarouselComponent";
 import GoogleIcon from "@mui/icons-material/Google";
 
 function EmployeeLogin() {

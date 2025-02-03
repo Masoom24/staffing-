@@ -10,109 +10,132 @@ import AddJobPost from "./MenuTabs/AddJobPost";
 import MyProfile from "./MenuTabs/MyProfile";
 import Interview from "./MenuTabs/Interview";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import MenuIcon from "@mui/icons-material/Menu";
 
 function EmployeeDashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <div className="flex h-screen">
-      <div style={{ backgroundColor: "#96BE25" }} className="w-1/4 p-6">
+      {/* Sidebar */}
+      <div
+        className={`fixed lg:relative transition-all duration-300 ${
+          sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        } bg-[#96BE25] w-64 p-6 z-50 h-full lg:block absolute top-0 left-0`}
+      >
         <div className="flex justify-between">
-          <h1 className=" mb-4 text-xl text-white font-bold">Team SkyIT</h1>
-          <label htmlFor="my-drawer-2" className="btn btn-ghost text-white">
+          <h1 className="mb-4 text-xl text-white font-bold">Team SkyIT</h1>
+          <button
+            className="lg:hidden text-white"
+            onClick={() => setSidebarOpen(false)}
+          >
             <KeyboardDoubleArrowLeftIcon />
-          </label>
+          </button>
         </div>
-        <ul className="steps steps-vertical mt-6 text-white gap-4">
+
+        <ul className="mt-6 text-white space-y-4">
           {/* Dashboard Tab */}
           <li
-            className={`flex items-center ${
+            className={`flex items-center cursor-pointer ${
               activeTab === "Dashboard" ? "font-bold" : ""
             }`}
-            onClick={() => setActiveTab("Dashboard")}
+            onClick={() => {
+              setActiveTab("Dashboard");
+              setSidebarOpen(false);
+            }}
           >
             <DashboardOutlinedIcon className="mr-2" />
-            <a href="#">Dashboard</a>
+            Dashboard
           </li>
 
           <h1 className="text-sm text-gray-200">Main Menu</h1>
 
           {/* Job Posts Tab */}
           <li
-            className={`flex items-center ${
+            className={`flex items-center cursor-pointer ${
               activeTab === "Job Posts" ? "font-bold" : ""
             }`}
-            onClick={() => setActiveTab("Job Posts")}
+            onClick={() => {
+              setActiveTab("Job Posts");
+              setSidebarOpen(false);
+            }}
           >
             <WorkOutlineIcon className="mr-2" />
-            <a href="#">Job Posts</a>
+            Job Posts
           </li>
 
           {/* Add Job Post Tab */}
           <li
-            className={`flex items-center ${
+            className={`flex items-center cursor-pointer ${
               activeTab === "Add Job Post" ? "font-bold" : ""
             }`}
-            onClick={() => setActiveTab("Add Job Post")}
+            onClick={() => {
+              setActiveTab("Add Job Post");
+              setSidebarOpen(false);
+            }}
           >
             <NextWeekOutlinedIcon className="mr-2" />
-            <a href="#">Add Job Post</a>
+            Add Job Post
           </li>
 
           {/* Interviews Tab */}
           <li
-            className={`flex items-center ${
+            className={`flex items-center cursor-pointer ${
               activeTab === "Interviews" ? "font-bold" : ""
             }`}
-            onClick={() => setActiveTab("Interviews")}
+            onClick={() => {
+              setActiveTab("Interviews");
+              setSidebarOpen(false);
+            }}
           >
             <WorkHistoryOutlinedIcon className="mr-2" />
-            <a href="#">Interviews</a>
+            Interviews
           </li>
 
           {/* My Profile Tab */}
           <li
-            className={`flex items-center ${
+            className={`flex items-center cursor-pointer ${
               activeTab === "Profile" ? "font-bold" : ""
             }`}
-            onClick={() => setActiveTab("Profile")}
+            onClick={() => {
+              setActiveTab("Profile");
+              setSidebarOpen(false);
+            }}
           >
             <AccountCircleOutlinedIcon className="mr-2" />
-            <a href="#">My Profile</a>
+            My Profile
           </li>
         </ul>
       </div>
 
-      {/* Main Content Area */}
-      <div className="bg-base-200 w-3/4 ml-1/4 h-screen flex flex-col">
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col bg-base-200">
         {/* Navbar */}
-        <div className="navbar bg-base-100 shadow-sm">
-          <div className="flex-1">
-            <a className="btn btn-ghost text-xl">{activeTab}</a>
-          </div>
-          <div className="flex gap-2">
+        <div className="navbar bg-base-100 shadow-sm flex justify-between p-4">
+          <button className="lg:hidden" onClick={() => setSidebarOpen(true)}>
+            <MenuIcon />
+          </button>
+          <h2 className="text-xl font-semibold">{activeTab}</h2>
+          <div className="flex items-center">
             <div className="dropdown dropdown-end">
-              <div
+              <button
                 tabIndex={0}
-                role="button"
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
                   <img
-                    alt="Tailwind CSS Navbar component"
+                    alt="User Profile"
                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                   />
                 </div>
-              </div>
+              </button>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box shadow mt-3 w-52 p-2"
               >
                 <li>
-                  <a className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
-                  </a>
+                  <a className="justify-between">Profile</a>
                 </li>
                 <li>
                   <a>Settings</a>
@@ -125,8 +148,8 @@ function EmployeeDashboard() {
           </div>
         </div>
 
-        <div className="flex-grow overflow-auto">
-          {/* Conditionally render content based on the active tab */}
+        {/* Main Content Area */}
+        <div className="flex-grow overflow-auto p-4">
           {activeTab === "Dashboard" && <Dashboard />}
           {activeTab === "Job Posts" && <JobPost />}
           {activeTab === "Add Job Post" && <AddJobPost />}
@@ -135,7 +158,7 @@ function EmployeeDashboard() {
         </div>
 
         {/* Footer */}
-        <footer className="footer sm:footer-horizontal footer-center bg-white text-base-content p-4 ">
+        <footer className="footer footer-center bg-white text-base-content p-4">
           <p>
             {" "}
             © {new Date().getFullYear()} Client Staffing Developed by - The

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../CandidateLogin.css";
 import { Link } from "react-router-dom";
-import UIButton from "../../../Common/UIButton";
+import UIButton from "../../../../Common/UIButton";
 import GoogleIcon from "@mui/icons-material/Google";
 import { useNavigate } from "react-router-dom";
 

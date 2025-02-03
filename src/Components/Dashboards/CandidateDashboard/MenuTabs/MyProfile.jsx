@@ -1,6 +1,8 @@
 import React from "react";
-import { Avatar, LinearProgress } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
+import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
+import { useNavigate } from "react-router-dom";
 import {
   Email,
   Phone,
@@ -9,11 +11,22 @@ import {
   School,
   Search,
 } from "@mui/icons-material";
-import UIButton from "../../../Common/UIButton";
+import UIButton from "../../../../Common/UIButton";
 
 function MyProfile() {
+  const navigate = useNavigate();
   return (
     <div className="p-4 flex flex-col gap-4">
+      <div className="flex flex-row justify-end gap-2">
+        <UIButton className>
+          <EditIcon className="mr-2"/>
+          Update Profile
+        </UIButton>
+        <UIButton>
+          <AutoFixHighIcon className="mr-2"/>
+          Generate Resume
+        </UIButton>
+      </div>
       {/* Card 1: Profile Details */}
       <div className="card bg-base-100 shadow-xl">
         <div className="card-body flex flex-col md:flex-row items-center gap-4">
@@ -67,7 +80,10 @@ function MyProfile() {
               <School /> Qualifications
             </h2>
 
-            <UIButton startIcon={<AddIcon/>}></UIButton>
+            <UIButton
+              onClick={() => navigate("/updateQualification")}
+              startIcon={<AddIcon />}
+            ></UIButton>
           </div>
           <div className="mt-4 text-center text-gray-500">No data found.</div>
         </div>
@@ -80,7 +96,10 @@ function MyProfile() {
             <h2 className="text-xl font-bold flex items-center gap-2">
               <Work /> Experience
             </h2>
-            <UIButton startIcon={<AddIcon/>}></UIButton>
+            <UIButton
+              onClick={() => navigate("/updateExperience")}
+              startIcon={<AddIcon />}
+            ></UIButton>
           </div>
           <div className="mt-4 text-center text-gray-500">No data found.</div>
         </div>

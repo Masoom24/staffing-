@@ -38,7 +38,9 @@ function MainLayout() {
         </div>
       </div>
       <div className="m-4">
-        <UIButton onClick={()=>navigate("/employeeDashboard")}>CurrentWork: EmployeeDashboard</UIButton>
+        <UIButton onClick={() => navigate("/employeeDashboard")}>
+          CurrentWork: EmployeeDashboard
+        </UIButton>
       </div>
     </div>
   );
