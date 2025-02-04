@@ -13,6 +13,7 @@ import WorkIcon from "@mui/icons-material/Work";
 import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import UpdateProfile from "./MenuTabs/UpdateProfile";
 
 function Dashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard"); // Default tab
@@ -91,9 +92,10 @@ function Dashboard() {
           {activeTab === "Dashboard" && <DashboardHome />}
           {activeTab === "Search Jobs" && <SearchJobs />}
           {activeTab === "My Interviews" && <MyInterview />}
-          {activeTab === "My Qualification" && <MyQualification/>}
+          {activeTab === "My Qualification" && <MyQualification />}
           {activeTab === "My Experience" && <MyExperience />}
-          {activeTab === "My Profile" && <MyProfile />}
+          {activeTab === "My Profile" && <MyProfile handleTabChange={handleTabChange}/>}
+          {activeTab === "Update Profile" && <UpdateProfile handleTabChange={handleTabChange}/>}
         </div>
 
         {/* Footer */}

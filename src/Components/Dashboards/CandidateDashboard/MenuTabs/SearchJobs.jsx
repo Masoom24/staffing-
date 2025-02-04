@@ -51,7 +51,7 @@ function SearchJobs() {
 
             {/* Filter Button */}
             <button
-              className="btn btn-primary flex items-center"
+              className="btn bg-lime-400 text-white flex items-center"
               onClick={() => setOpenFilter(!openFilter)}
             >
               <FilterAltIcon className="mr-2" /> Filter <KeyboardArrowDownIcon />

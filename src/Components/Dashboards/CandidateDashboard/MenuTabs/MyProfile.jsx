@@ -2,7 +2,6 @@ import React from "react";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
-import { useNavigate } from "react-router-dom";
 import {
   Email,
   Phone,
@@ -13,17 +12,16 @@ import {
 } from "@mui/icons-material";
 import UIButton from "../../../../Common/UIButton";
 
-function MyProfile() {
-  const navigate = useNavigate();
+function MyProfile({ handleTabChange }) {
   return (
     <div className="p-4 flex flex-col gap-4">
       <div className="flex flex-row justify-end gap-2">
-        <UIButton className>
-          <EditIcon className="mr-2"/>
+        <UIButton onClick={() => handleTabChange("Update Profile")}>
+          <EditIcon className="mr-2" />
           Update Profile
         </UIButton>
         <UIButton>
-          <AutoFixHighIcon className="mr-2"/>
+          <AutoFixHighIcon className="mr-2" />
           Generate Resume
         </UIButton>
       </div>
@@ -73,17 +71,18 @@ function MyProfile() {
       </div>
 
       {/* Card 2: Qualifications */}
+
+      {/* Card 2: Qualifications */}
       <div className="card bg-base-100 shadow-xl">
         <div className="card-body">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-bold flex items-center gap-2">
               <School /> Qualifications
             </h2>
-
             <UIButton
-              onClick={() => navigate("/updateQualification")}
               startIcon={<AddIcon />}
-            ></UIButton>
+              onClick={() => handleTabChange("My Qualification")}
+            />
           </div>
           <div className="mt-4 text-center text-gray-500">No data found.</div>
         </div>
@@ -97,9 +96,9 @@ function MyProfile() {
               <Work /> Experience
             </h2>
             <UIButton
-              onClick={() => navigate("/updateExperience")}
               startIcon={<AddIcon />}
-            ></UIButton>
+              onClick={() => handleTabChange("My Experience")}
+            />
           </div>
           <div className="mt-4 text-center text-gray-500">No data found.</div>
         </div>
