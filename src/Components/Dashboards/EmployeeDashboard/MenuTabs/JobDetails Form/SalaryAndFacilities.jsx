@@ -1,30 +1,16 @@
-import React from 'react';
+import React from "react";
 import InputField from "../../../../../Common/InputField";
 
-
-const SalaryAndFacilities = ({ jobDetails, setJobDetails, setStep }) => {
+const SalaryAndFacilities = ({ jobDetails, setJobDetails }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setJobDetails(prev => ({ ...prev, [name]: value }));
+    setJobDetails((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
-    <form>
+    <form style={{ maxWidth: "none" }}>
       <h1 className="pb-4">Salary and Facilities</h1>
-      <InputField
-        label="Minimum Salary"
-        name="minSalary"
-        value={jobDetails.minSalary}
-        onChange={handleChange}
-        placeholder="Enter Minimum Salary"
-      />
-      <InputField
-        label="Max Salary"
-        name="maxSalary"
-        value={jobDetails.maxSalary}
-        onChange={handleChange}
-        placeholder="Enter Max Salary"
-      />
+      
       <InputField
         label="Facilities"
         name="facilities"
@@ -53,10 +39,6 @@ const SalaryAndFacilities = ({ jobDetails, setJobDetails, setStep }) => {
         onChange={handleChange}
         placeholder="Enter Deduction Details"
       />
-      <div className="flex float-right mt-4">
-        <button className="btn  mr-2 border-lime-500 bg-white shadow-md text-lime-500" onClick={(e) => { e.preventDefault(); setStep(1); }}>Back</button>
-        <button className="btn bg-lime-500 text-white shadow-md" onClick={(e) => { e.preventDefault(); setStep(3); }}>Next</button>
-      </div>
     </form>
   );
 };

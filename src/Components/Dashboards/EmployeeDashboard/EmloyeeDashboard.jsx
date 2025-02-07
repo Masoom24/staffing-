@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
-import NextWeekOutlinedIcon from "@mui/icons-material/NextWeekOutlined";
 import WorkHistoryOutlinedIcon from "@mui/icons-material/WorkHistoryOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import Dashboard from "./MenuTabs/Dashboard";
@@ -11,10 +10,18 @@ import MyProfile from "./MenuTabs/MyProfile";
 import Interview from "./MenuTabs/Interview";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import MenuIcon from "@mui/icons-material/Menu";
+import JobDescription from "./MenuTabs/JobDescription/JobDescription";
+import UpdateProfile from "./MenuTabs/UpdateProfile/UpdateProfile";
+import SettingsComponent from "./MenuTabs/Settings/SettingsComponent";
 
 function EmployeeDashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const handleTabChange = (tabName) => {
+    setActiveTab(tabName);
+    setSidebarOpen(false);
+  };
 
   return (
     <div className="flex h-screen">
@@ -40,10 +47,7 @@ function EmployeeDashboard() {
             className={`flex items-center cursor-pointer ${
               activeTab === "Dashboard" ? "font-bold" : ""
             }`}
-            onClick={() => {
-              setActiveTab("Dashboard");
-              setSidebarOpen(false);
-            }}
+            onClick={() => handleTabChange("Dashboard")}
           >
             <DashboardOutlinedIcon className="mr-2" />
             Dashboard
@@ -56,27 +60,10 @@ function EmployeeDashboard() {
             className={`flex items-center cursor-pointer ${
               activeTab === "Job Posts" ? "font-bold" : ""
             }`}
-            onClick={() => {
-              setActiveTab("Job Posts");
-              setSidebarOpen(false);
-            }}
+            onClick={() => handleTabChange("Job Posts")}
           >
             <WorkOutlineIcon className="mr-2" />
             Job Posts
-          </li>
-
-          {/* Add Job Post Tab */}
-          <li
-            className={`flex items-center cursor-pointer ${
-              activeTab === "Add Job Post" ? "font-bold" : ""
-            }`}
-            onClick={() => {
-              setActiveTab("Add Job Post");
-              setSidebarOpen(false);
-            }}
-          >
-            <NextWeekOutlinedIcon className="mr-2" />
-            Add Job Post
           </li>
 
           {/* Interviews Tab */}
@@ -84,10 +71,7 @@ function EmployeeDashboard() {
             className={`flex items-center cursor-pointer ${
               activeTab === "Interviews" ? "font-bold" : ""
             }`}
-            onClick={() => {
-              setActiveTab("Interviews");
-              setSidebarOpen(false);
-            }}
+            onClick={() => handleTabChange("Interviews")}
           >
             <WorkHistoryOutlinedIcon className="mr-2" />
             Interviews
@@ -98,10 +82,7 @@ function EmployeeDashboard() {
             className={`flex items-center cursor-pointer ${
               activeTab === "Profile" ? "font-bold" : ""
             }`}
-            onClick={() => {
-              setActiveTab("Profile");
-              setSidebarOpen(false);
-            }}
+            onClick={() => handleTabChange("Profile")}
           >
             <AccountCircleOutlinedIcon className="mr-2" />
             My Profile
@@ -151,10 +132,13 @@ function EmployeeDashboard() {
         {/* Main Content Area */}
         <div className="flex-grow overflow-auto p-4">
           {activeTab === "Dashboard" && <Dashboard />}
-          {activeTab === "Job Posts" && <JobPost />}
-          {activeTab === "Add Job Post" && <AddJobPost />}
+          {activeTab === "Job Posts" && <JobPost handleTabChange={handleTabChange}/>}
+          {activeTab === "Add Job Post" && <AddJobPost handleTabChange={handleTabChange}/>}
           {activeTab === "Interviews" && <Interview />}
-          {activeTab === "Profile" && <MyProfile />}
+          {activeTab === "Profile" && <MyProfile handleTabChange={handleTabChange}/>}
+          {activeTab === "Job Description" && <JobDescription />}
+          {activeTab === "Update Profile" && <UpdateProfile handleTabChange={handleTabChange}/>}
+          {activeTab === "Settings" && <SettingsComponent/>}
         </div>
 
         {/* Footer */}

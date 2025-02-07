@@ -1,97 +1,77 @@
-import React from "react";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import FilterAltIcon from "@mui/icons-material/FilterAlt";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 function Interview() {
   const interviews = [
     {
       id: 1,
-      profile: "React Native Developer",
-      date: "22 May, 2023 12:00PM",
-      round: 1,
-      status: "Interview Applied",
-      desc: "Develop React Native applications for both iOS and Android Leverage native APIs for deep integrations with both platforms...",
+      candidate: "John Doe",
+      jobDetails: "Frontend Developer at ABC Corp",
+      scheduleDate: "2025-02-10",
+      location: "Online",
+      created: "2025-02-01",
+      status: "Scheduled",
     },
     {
-      id: 1,
-      profile: "React Native Developer",
-      date: "22 May, 2023 12:00PM",
-      round: 1,
-      status: "Interview Applied",
-      desc: "Develop React Native applications for both iOS and Android Leverage native APIs for deep integrations with both platforms...",
+      id: 2,
+      candidate: "Jane Smith",
+      jobDetails: "Marketing Specialist at XYZ Ltd",
+      scheduleDate: "2025-02-12",
+      location: "Office",
+      created: "2025-01-28",
+      status: "Completed",
     },
-    {
-      id: 1,
-      profile: "React Native Developer",
-      date: "22 May, 2023 12:00PM",
-      round: 1,
-      status: "Interview Applied",
-      desc: "Develop React Native applications for both iOS and Android Leverage native APIs for deep integrations with both platforms...",
-    },
-    {
-      id: 1,
-      profile: "React Native Developer",
-      date: "22 May, 2023 12:00PM",
-      round: 1,
-      status: "Interview Applied",
-      desc: "Develop React Native applications for both iOS and Android Leverage native APIs for deep integrations with both platforms...",
-    },
-    {
-      id: 1,
-      profile: "React Native Developer",
-      date: "22 May, 2023 12:00PM",
-      round: 1,
-      status: "Interview Applied",
-      desc: "Develop React Native applications for both iOS and Android Leverage native APIs for deep integrations with both platforms...",
-    },
-    
   ];
-  return (
-    <div className="m-4 flex flex-col">
-      <div className="flex justify-between">
-        <label className="input">
-          <svg
-            className="h-[1em] opacity-50"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
-            <g
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              strokeWidth="2.5"
-              fill="none"
-              stroke="currentColor"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="m21 21-4.3-4.3"></path>
-            </g>
-          </svg>
-          <input type="search" required placeholder="All Status" />
-        </label>
-        <button className="btn bg-lime-600 shadow-md text-white mb-4">
-          <FilterAltIcon /> Filter <ExpandMoreIcon />
-        </button>
-      </div>
-      {interviews.map((interview) => {
-        return (
-          <div className="card card-border bg-base-100 mt-2 w-full">
-            <div className="card-body">
-              <p className="card-title bg-white">Round {interview.round}</p>
-              <div className="flex justify-between">
-                <h2 className="card-title text-lime-500">
-                  {interview.profile}
-                </h2>
-              </div>
 
-              <p className="card-title">{interview.desc}</p>
-              <div className=" bg-gray-200 w-30 mt-2 rounded flex justify-center">
-                <p className="card-title ml-2">{interview.status}</p>
-              </div>
-            </div>
-          </div>
-        );
-      })}
+  return (
+    <div className="m-4">
+      <div className="card bg-white border-gray-200 p-4">
+        <div className="overflow-x-auto">
+          <table className="table w-full">
+            <thead>
+              <tr>
+                <th>Candidate</th>
+                <th className="hidden md:table-cell">Job Details</th>
+                <th className="hidden md:table-cell">Schedule Date</th>
+                <th className="hidden md:table-cell">Location</th>
+                <th className="hidden md:table-cell">Created</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {interviews.map((interview) => (
+                <tr key={interview.id}>
+                  <td>{interview.candidate}</td>
+                  <td className="hidden md:table-cell">{interview.jobDetails}</td>
+                  <td className="hidden md:table-cell">{interview.scheduleDate}</td>
+                  <td className="hidden md:table-cell">{interview.location}</td>
+                  <td className="hidden md:table-cell">{interview.created}</td>
+                  <td>
+                    <span
+                      className={`badge ${
+                        interview.status === "Scheduled"
+                          ? "badge-info"
+                          : "badge-success"
+                      }`}
+                    >
+                      {interview.status}
+                    </span>
+                  </td>
+                  <td>
+                    <button className="btn mr-2 btn-sm bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white">
+                      <EditIcon />
+                    </button>
+                    <button className="btn btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white">
+                      <DeleteIcon />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }
