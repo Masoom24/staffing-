@@ -32,7 +32,7 @@ function MainLayout() {
             <UIButton
               startIcon={<CandidateIcon />}
               style={{ borderRadius: "50px" }}
-              onClick={() => navigate("/candidate-login")}
+              onClick={() => navigate("/candidate/Login")}
             >
               <h1 className="font-bold hidden sm:block">Candidate</h1>
             </UIButton>
@@ -42,18 +42,14 @@ function MainLayout() {
               startIcon={<EmployeeIcon />}
               style={{ borderRadius: "50px" }}
               className="m-2"
-              onClick={() => navigate("/employee-login")}
+              onClick={() => navigate("/employee/Login")}
             >
               <h1 className="font-bold hidden sm:block">Employee</h1>
             </UIButton>
           </div>
         </div>
       </div>
-      <div className="m-4">
-        <UIButton onClick={() => navigate("/employeeDashboard")}>
-          CurrentWork: EmployeeDashboard
-        </UIButton>
-      </div>
+      
       <div className="dock dock-sm border-black lg:hidden">
         <button className="">
           <Home />

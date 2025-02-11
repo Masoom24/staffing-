@@ -13,7 +13,7 @@ function Login() {
 
   const LoginWithEmail = (e) => {
     e.preventDefault();
-    navigate("/dashboard");
+    navigate("/candidate/Dashboard"); // Redirect to Dashboard after login
   };
 
   const LoginWithGoogle = () => {
@@ -82,7 +82,7 @@ function Login() {
 
         <p className="text-sm mt-4 text-center">
           Don’t have an account?{" "}
-          <Link to="/sign-up" className="text-blue-500">
+          <Link to="/candidate/Register" className="text-blue-500">
             Sign Up
           </Link>
         </p>

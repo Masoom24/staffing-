@@ -1,33 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const UIButton = ({ text, type = "button", onClick, startIcon, endIcon, style = {}, children }) => {
-  const buttonStyles = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    border: "1px solid #96BE25",
-    backgroundColor: "#96BE25",
-    color: "#fff",
-    padding: "10px 20px",
-    borderRadius: "5px",
-    fontSize: "14px",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.06)",
-    ...style,
-  };
-
-  const iconStyles = {
-    marginRight: (text || children) && startIcon ? "8px" : 0,
-    marginLeft: (text || children) && endIcon ? "8px" : 0,
-  };
-
+const UIButton = ({
+  text,
+  type = "button",
+  onClick,
+  startIcon,
+  endIcon,
+  style = {},
+  children,
+}) => {
   return (
-    <button type={type} onClick={onClick} style={buttonStyles}>
-      {startIcon && <span style={iconStyles}>{startIcon}</span>}
+    <button
+      type={type}
+      onClick={onClick}
+      className={`flex items-center justify-center border border-[#96BE25] bg-[#96BE25] text-white px-4 py-2 rounded-md text-sm font-medium shadow-md hover:bg-[#75941c] transition-all duration-300`}
+      style={style}
+    >
+      {startIcon && <span className="mr-2">{startIcon}</span>}
       <div>{text || children}</div>
-      {endIcon && <span style={iconStyles}>{endIcon}</span>}
+      {endIcon && <span className="ml-2">{endIcon}</span>}
     </button>
   );
 };
@@ -38,7 +30,7 @@ UIButton.propTypes = {
   startIcon: PropTypes.element,
   endIcon: PropTypes.element,
   style: PropTypes.object,
-  children: PropTypes.node, // Add children prop validation
+  children: PropTypes.node,
 };
 
 export default UIButton;

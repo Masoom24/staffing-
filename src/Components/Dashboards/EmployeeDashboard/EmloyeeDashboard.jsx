@@ -130,7 +130,7 @@ function EmployeeDashboard() {
         </div>
 
         {/* Main Content Area */}
-        <div className="flex-grow overflow-auto p-4">
+        <div className="flex-grow ">
           {activeTab === "Dashboard" && <Dashboard />}
           {activeTab === "Job Posts" && <JobPost handleTabChange={handleTabChange}/>}
           {activeTab === "Add Job Post" && <AddJobPost handleTabChange={handleTabChange}/>}

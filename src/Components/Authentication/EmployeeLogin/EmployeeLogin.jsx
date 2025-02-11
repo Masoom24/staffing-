@@ -1,6 +1,8 @@
 import React from "react";
 import CarouselComponent from "../../../Common/Carousel/CarouselComponent";
 import GoogleIcon from "@mui/icons-material/Google";
+import UIButton from "../../../Common/UIButton";
+import InputField from "../../../Common/InputField";
 
 function EmployeeLogin() {
   return (
@@ -15,29 +17,15 @@ function EmployeeLogin() {
               Hi, Welcome Back👋
             </h1>
             <div className="flex flex-col m-6">
-              <label htmlFor="email" className="text-md pb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                className="p-2 rounded-md"
-                placeholder="example@gmail.com"
-                required
+              <InputField label={"Email"} placeholder={"example@gmail.com"} />
+              <InputField
+                label={"Password"}
+                placeholder={"Enter your password"}
               />
             </div>
-            <div className="flex flex-col m-6">
-              <label htmlFor="password" className="text-md pb-2">
-                Password
-              </label>
-              <input
-                type="password" // changed to 'password' instead of 'email'
-                className="p-2 rounded-md"
-                placeholder="Password"
-                required
-              />
-            </div>
+
             <div className="flex flex-row justify-between m-6">
-              <label htmlFor="password" className="text-md pb-2">
+              <label htmlFor="password" className="label text-md pb-2">
                 <input type="checkbox" />
                 Remember Login
               </label>
@@ -46,16 +34,16 @@ function EmployeeLogin() {
               </a>
             </div>
             <div className="flex flex-col m-6">
-              <button className="btn bg-lime-400 text-white mb-4 w-full">Login</button>
-              <hr />
-              <button className="btn w-full mt-4 flex justify-center items-center">
+              <UIButton>Login</UIButton>
+              <div className="divider">OR</div>
+              <button className="btn w-full flex justify-center items-center">
                 <GoogleIcon className="mr-2" /> Login with Google
               </button>
 
               <div className="mt-4 text-center">
                 <p>
                   Don't have an account?{" "}
-                  <a href="/employee-registration" className="text-blue-600">
+                  <a href="/employee/Registration" className="text-blue-600">
                     Sign Up
                   </a>
                 </p>

@@ -102,7 +102,7 @@ const EmployeeRegistration = () => {
         </ul>
           <h1 className="mt-6 text-left text-white text-sm">
             Already have an account?{" "}
-            <a href="/employee-login" className="text-blue-600">
+            <a href="/employee/Login" className="text-blue-600">
               Login
             </a>
           </h1>

@@ -81,7 +81,7 @@ const GeneralInformation = ({ jobDetails, handleChange }) => {
           />
         </div>
 
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row gap-4 md:flex md:flex">
           <InputField
             label="Minimum Experience"
             name="minimumExperience"
@@ -104,7 +104,7 @@ const GeneralInformation = ({ jobDetails, handleChange }) => {
             placeholder="Enter Minimum Salary"
           />
           <InputField
-            label="Max Salary"
+            label="Maximum Salary"
             name="maxSalary"
             value={jobDetails.maxSalary}
             onChange={handleChange}

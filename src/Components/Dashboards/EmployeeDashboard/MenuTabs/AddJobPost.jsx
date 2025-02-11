@@ -43,7 +43,7 @@ function AddJobPost({handleTabChange}) {
 
   return (
     <div>
-      <div className="mb-4 flex justify-end">
+      <div className="m-4 flex justify-end">
         <UIButton onClick={()=>handleTabChange("Add Job Post")}><WorkOutlineIcon className="mr-2"/>Job Post</UIButton>
       </div>
       <div className="card bg-white m-4 flex min-50">

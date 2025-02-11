@@ -196,7 +196,7 @@ function SignUp() {
             <UIButton text="Register" type="submit" style={{ width:"100%" }}/>
           </div>
           <p style={{ fontSize: "13px" }}>
-            Already have account ? <Link to="/candidate-login">Login here</Link>
+            Already have account ? <Link to="/candidate/Login">Login here</Link>
           </p>
         </form>
       </div>

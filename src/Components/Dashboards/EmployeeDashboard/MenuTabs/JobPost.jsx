@@ -49,7 +49,7 @@ function JobPost({ handleTabChange }) {
       {/* Card containing Search, Filter, and Table */}
       <div className="card bg-white border-gray-200 p-4">
         {/* Search and Filter Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
+        <div className="flex flex-col items-start lg:flex-row justify-between items-center gap-4 mb-4">
           <label className="input bg-gray-200 w-full md:w-auto flex items-center px-2 py-1 rounded">
             <svg
               className="h-[1em] opacity-50 mr-2"
@@ -75,7 +75,7 @@ function JobPost({ handleTabChange }) {
             />
           </label>
 
-          <div className="md:flaot-left">
+          <div className="md:items-center flex gap-4">
             <UIButton>
               <FilterAltIcon />
               Filter
@@ -129,14 +129,12 @@ function JobPost({ handleTabChange }) {
                     </span>
                   </td>
                   <td>
-                    <div className="flex gap-2">
-                      <button className="btn btn-sm bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white">
-                        <EditIcon />
-                      </button>
-                      <button className="btn btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white">
-                        <DeleteIcon />
-                      </button>
-                    </div>
+                    <button className="btn btn-sm bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white md:p-2">
+                      <EditIcon />
+                    </button>
+                    <button className="btn btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white">
+                      <DeleteIcon />
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -151,12 +149,13 @@ function JobPost({ handleTabChange }) {
               <option>3</option>
             </select>
             <div className="join">
-            <button className="join-item btn bg-white border-0">«</button>
-            <button className="join-item btn bg-lime-400 rounded-md">1</button>
-            <button className="join-item btn bg-white border-0">»</button>
+              <button className="join-item btn bg-white border-0">«</button>
+              <button className="join-item btn bg-lime-400 rounded-md">
+                1
+              </button>
+              <button className="join-item btn bg-white border-0">»</button>
+            </div>
           </div>
-          </div>
-          
         </div>
       </div>
     </div>

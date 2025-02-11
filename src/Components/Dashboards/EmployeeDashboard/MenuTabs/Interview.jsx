@@ -59,7 +59,7 @@ function Interview() {
                     </span>
                   </td>
                   <td>
-                    <button className="btn mr-2 btn-sm bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white">
+                    <button className="btn btn-sm bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white">
                       <EditIcon />
                     </button>
                     <button className="btn btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white">
