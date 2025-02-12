@@ -10,6 +10,17 @@ const Filter = ({ showFilterDropdown, onFilterClick }) => {
     console.log(`${e.target.name}: ${e.target.value}`);
   };
 
+  const jobCatergories = [
+    "Information Technology",
+    "Accounting",
+    "Agriculture",
+    "Banking",
+    "Busisness Development",
+    "Human Resources",
+    "Marketing",
+    "Sales",
+  ];
+
   return (
     <div className="relative">
       <UIButton onClick={onFilterClick}>
@@ -31,7 +42,7 @@ const Filter = ({ showFilterDropdown, onFilterClick }) => {
               label="Category"
               name="category"
               type="select"
-              options={["Information Technology"]}
+              options={jobCatergories}
               placeholder="Select Category"
               onChange={handleInputChange}
             />
@@ -40,7 +51,14 @@ const Filter = ({ showFilterDropdown, onFilterClick }) => {
               label="Education"
               name="education"
               type="select"
-              options={["High School", "Bachelor's Degree"]}
+              options={[
+                "High School",
+                "Bachelor's Degree",
+                "Any Graduate",
+                "ITI",
+                "Diploma",
+                "Master's Degree",
+              ]}
               placeholder="Select Education"
               onChange={handleInputChange}
             />

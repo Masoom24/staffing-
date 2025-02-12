@@ -1,17 +1,15 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
-    <div>
-        <footer className="footer sm:footer-horizontal footer-center bg-white text-base-content p-4">
-        <p>
-          {" "}
-          © {new Date().getFullYear()} Client Staffing Developed by - The
-          SkyIT
+    <footer className="bg-white text-gray-600 p-4">
+      <div className="container mx-auto flex flex-col items-center sm:flex-row sm:justify-between">
+        <p className="text-center sm:text-left text-sm">
+          © {new Date().getFullYear()} Client Staffing. Developed by - The SkyIT
         </p>
-      </footer>
-    </div>
-  )
-}
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

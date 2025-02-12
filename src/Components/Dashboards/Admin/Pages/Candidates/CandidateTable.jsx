@@ -12,21 +12,22 @@ const CandidateTable = ({
   onPageChange,
   totalRecords,
   itemsPerPage,
+  handleDelete,
 }) => {
   return (
     <div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto pt-4 pb-4">
         <table className="table w-full">
           <thead>
             <tr>
               <th>#</th>
               <th>Candidate</th>
-              <th>Phone Number</th>
-              <th>Email Address</th>
-              <th>Education</th>
-              <th>Created</th>
-              <th>Status</th>
-              <th>Actions</th>
+              <th className="hidden md:table-cell">Phone Number</th>
+              <th className="hidden md:table-cell">Email Address</th>
+              <th className="hidden md:table-cell">Education</th>
+              <th className="hidden md:table-cell">Created</th>
+              <th className="hidden md:table-cell">Status</th>
+              <th className="hidden md:table-cell">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -42,25 +43,27 @@ const CandidateTable = ({
                     </div>
                     <div>
                       <div className="font-bold">{candidate.name}</div>
-                      <div className="text-sm text-blue-500">Experienced</div>
+                      <div className="text-sm text-blue-500">
+                        {candidate.experience}
+                      </div>
                     </div>
                   </div>
                 </td>
-                <td>
+                <td className="hidden md:table-cell">
                   <div className="flex items-center space-x-2">
                     <LocalPhoneIcon className="text-blue-500 text-sm" />
                     <span>{candidate.phone}</span>
                   </div>
                 </td>
-                <td>
+                <td className="hidden md:table-cell">
                   <div className="flex items-center space-x-2">
                     <EmailIcon className="text-blue-500" />
                     <span>{candidate.email}</span>
                   </div>
                 </td>
-                <td>{candidate.education}</td>
-                <td>{candidate.created}</td>
-                <td>
+                <td className="hidden md:table-cell">{candidate.education}</td>
+                <td className="hidden md:table-cell">{candidate.created}</td>
+                <td className="hidden md:table-cell">
                   <input
                     type="checkbox"
                     className="toggle toggle-success"
@@ -68,12 +71,15 @@ const CandidateTable = ({
                     readOnly
                   />
                 </td>
-                <td>
+                <td className="hidden md:table-cell">
                   <div className="flex space-x-2">
                     <button className="btn btn-ghost btn-circle border-blue-500 text-blue-500">
                       <AccountCircleOutlinedIcon />
                     </button>
-                    <button className="btn btn-ghost border-red-500 text-red-500">
+                    <button
+                      className="btn btn-ghost border-red-500 text-red-500"
+                      onClick={() => handleDelete(candidate.id)}
+                    >
                       <Delete />
                     </button>
                   </div>
@@ -88,8 +94,7 @@ const CandidateTable = ({
         <h1>
           Showing{" "}
           <b>
-            {indexOfFirstItem + 1} -{" "}
-            {indexOfFirstItem + candidates.length}{" "}
+            {indexOfFirstItem + 1} - {indexOfFirstItem + candidates.length}{" "}
           </b>
           of <b>{totalRecords}</b> Records
         </h1>

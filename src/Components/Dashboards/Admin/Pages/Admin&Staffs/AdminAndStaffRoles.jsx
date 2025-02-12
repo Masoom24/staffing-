@@ -115,19 +115,27 @@ const AdminAndStaffRoles = () => {
   return (
     <div className="flex flex-col sm:flex-row md-flex-row">
       <div className="card-body bg-white rounded-md shadow-md m-0 p-0 sm:p-8 mt-4 sm:m-4 md:m-4">
-        <h2 className="text-lg font-bold text-gray-900 p-4 pb-0 sm:p-8 sm:pb-0">{isEditing ? "Edit Role" : "Create Role"}</h2>
-        <form className="form-control max-w-full" style={{ width: "100%", maxWidth: "none" }}>
+        <h2 className="text-lg font-bold text-gray-900 p-4 pb-0 sm:p-8 sm:pb-0">
+          {isEditing ? "Edit Role" : "Create Role"}
+        </h2>
+        <form
+          className="form-control max-w-full"
+          style={{ width: "100%", maxWidth: "none" }}
+        >
           <InputField
             label="Role Name"
             type="text"
             placeholder="Enter role name"
             value={roleName}
             onChange={(e) => setRoleName(e.target.value)}
+            required
           />
 
           {/* Permissions Table */}
           <div className="mt-4">
-            <h3 className="text-md font-semibold text-gray-800 mb-2">Permissions</h3>
+            <h3 className="text-md font-semibold text-gray-800 mb-2">
+              Permissions<span className="text-red-500">*</span>
+            </h3>
             <div className="overflow-x-auto">
               <table className="table w-full ">
                 <thead>
@@ -145,16 +153,26 @@ const AdminAndStaffRoles = () => {
                         <input
                           type="checkbox"
                           className="checkbox checkbox-success"
-                          checked={selectedPermissions[permission.name]?.isRead || false}
-                          onChange={() => handlePermissionChange(permission.name, "isRead")}
+                          checked={
+                            selectedPermissions[permission.name]?.isRead ||
+                            false
+                          }
+                          onChange={() =>
+                            handlePermissionChange(permission.name, "isRead")
+                          }
                         />
                       </td>
                       <td className="text-center">
                         <input
                           type="checkbox"
                           className="checkbox checkbox-success"
-                          checked={selectedPermissions[permission.name]?.isWrite || false}
-                          onChange={() => handlePermissionChange(permission.name, "isWrite")}
+                          checked={
+                            selectedPermissions[permission.name]?.isWrite ||
+                            false
+                          }
+                          onChange={() =>
+                            handlePermissionChange(permission.name, "isWrite")
+                          }
                         />
                       </td>
                     </tr>
@@ -165,7 +183,10 @@ const AdminAndStaffRoles = () => {
           </div>
 
           <div className="flex justify-end mt-4">
-            <UIButton text={isEditing ? "Update Role" : "Create Role"} onClick={handleCreateRole} />
+            <UIButton
+              text={isEditing ? "Update Role" : "Create Role"}
+              onClick={handleCreateRole}
+            />
           </div>
         </form>
       </div>
@@ -230,13 +251,17 @@ const AdminAndStaffRoles = () => {
           <div className="modal-box">
             <h3 className="font-bold text-lg">Confirm Delete</h3>
             <p className="py-4">
-              Are you sure you want to delete the role "{roleToDelete?.roleName}"?
+              Are you sure you want to delete the role "{roleToDelete?.roleName}
+              "?
             </p>
             <div className="modal-action">
               <button className="btn btn-error" onClick={confirmDelete}>
                 Yes, Delete
               </button>
-              <button className="btn" onClick={() => setShowConfirmModal(false)}>
+              <button
+                className="btn"
+                onClick={() => setShowConfirmModal(false)}
+              >
                 Cancel
               </button>
             </div>

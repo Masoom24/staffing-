@@ -13,7 +13,7 @@ import React, { useState } from "react";
 import AdminAndStaff from "../Pages/Admin&Staffs/AdminAndStaff";
 import AdminAndStaffRoles from "../Pages/Admin&Staffs/AdminAndStaffRoles";
 import Candidates from "../Pages/Candidates/Candidates";
-import Clients from "../Pages/Clients";
+import Clients from "../Pages/Clients/Clients";
 import Home from "../Pages/Home";
 import HumanResource from "../Pages/HumanResource";
 import Interview from "../Pages/Interview";
@@ -22,23 +22,27 @@ import Pages from "../Pages/Pages";
 import Tools from "../Pages/Tools";
 import Footer from "./Footer";
 
-
 function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard"); // Default tab
 
   const handleTabChange = (tabName) => {
     setActiveTab(tabName);
   };
+
+  const drawerCheckbox = document.getElementById("sider");
+  if (drawerCheckbox) {
+    drawerCheckbox.checked = false;
+  }
   return (
     <div className="drawer lg:drawer-open bg-gray-100">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <input id="sider" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content flex flex-col justify-between">
         {/* Main Content */}
         <div>
           <div className="navbar bg-base-100 shadow-md">
             {/* Menu Icon only visible on mobile screens */}
-            <label htmlFor="my-drawer-2" className="btn btn-ghost lg:hidden">
+            <label htmlFor="sider" className="btn btn-ghost lg:hidden">
               <MenuIcon />
             </label>
 
@@ -68,7 +72,7 @@ function AdminDashboard() {
         >
           <div className="flex justify-between">
             <h1 className="pl-3 mb-4 text-xl font-bold">Team SkyIT</h1>
-            <label htmlFor="my-drawer-2" className="btn btn-ghost lg:hidden">
+            <label htmlFor="sider" className="btn btn-ghost lg:hidden">
               <KeyboardDoubleArrowLeftIcon />
             </label>
           </div>
@@ -77,7 +81,7 @@ function AdminDashboard() {
               <DashboardIcon className="mr-2" /> Dashboard
             </a>
           </li>
-          <li >
+          <li>
             <p>Main Menu</p>
           </li>
 
