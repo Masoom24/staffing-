@@ -4,7 +4,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import UIButton from "../../../../Common/UIButton";
+import UIButton from "../../../../../Common/UIButton";
+import SearchBar from "../../../../../Common/SearchBar";
 
 function JobPost({ handleTabChange }) {
   const jobs = [
@@ -50,30 +51,7 @@ function JobPost({ handleTabChange }) {
       <div className="card bg-white border-gray-200 p-4">
         {/* Search and Filter Section */}
         <div className="flex flex-col items-start lg:flex-row justify-between items-center gap-4 mb-4">
-          <label className="input bg-gray-200 w-full md:w-auto flex items-center px-2 py-1 rounded">
-            <svg
-              className="h-[1em] opacity-50 mr-2"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                strokeWidth="2.5"
-                fill="none"
-                stroke="currentColor"
-              >
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.3-4.3"></path>
-              </g>
-            </svg>
-            <input
-              type="search"
-              required
-              placeholder="Search"
-              className="bg-transparent outline-none"
-            />
-          </label>
+          <SearchBar/>
 
           <div className="md:items-center flex gap-4">
             <UIButton>
@@ -129,12 +107,14 @@ function JobPost({ handleTabChange }) {
                     </span>
                   </td>
                   <td>
-                    <button className="btn btn-sm bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white md:p-2">
-                      <EditIcon />
-                    </button>
-                    <button className="btn btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white">
-                      <DeleteIcon />
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <button className="btn btn-sm p-2 bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white md:p-2">
+                        <EditIcon />
+                      </button>
+                      <button className="btn p-2 btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white">
+                        <DeleteIcon />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

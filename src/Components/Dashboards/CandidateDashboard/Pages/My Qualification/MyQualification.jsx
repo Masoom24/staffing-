@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import UIButton from "../../../../Common/UIButton";
+import UIButton from "../../../../../Common/UIButton";
 import QualificationForm from "./QualificationForm";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 
 function MyQualification() {
@@ -57,6 +58,7 @@ function MyQualification() {
       <div>
         <UIButton
           onClick={() => setShowForm(true)}
+          startIcon={<AddIcon/>}
           text="Add Qualification"
           className="btn btn-primary"
         />

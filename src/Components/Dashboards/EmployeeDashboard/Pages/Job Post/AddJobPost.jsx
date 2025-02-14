@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import GeneralInformation from "./JobDetails Form/GeneralInformation";
 import SalaryAndFacilities from "./JobDetails Form/SalaryAndFacilities";
 import JobLocation from "./JobDetails Form/JobLocation";
-import UIButton from "../../../../Common/UIButton";
+import UIButton from "../../../../../Common/UIButton";
 import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
 
 function AddJobPost({handleTabChange}) {

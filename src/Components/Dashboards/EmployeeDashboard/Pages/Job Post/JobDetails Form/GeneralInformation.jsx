@@ -1,6 +1,6 @@
 import React from "react";
-import InputField from "../../../../../Common/InputField";
-import EditorComponent from "../../../../../Common/EditorComponent/EditorComponent";
+import InputField from "../../../../../../Common/InputField";
+import EditorComponent from "../../../../../../Common/EditorComponent/EditorComponent";
 
 const GeneralInformation = ({ jobDetails, handleChange }) => {
   const jobCatergories = [

@@ -1,5 +1,5 @@
 import React from "react";
-import UIButton from "../../../../Common/UIButton";
+import UIButton from "../../../../../Common/UIButton";
 import EditIcon from "@mui/icons-material/Edit";
 import { Email, Phone, Home } from "@mui/icons-material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";

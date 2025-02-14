@@ -1,5 +1,5 @@
 import React from "react";
-import InputField from "../../../../../Common/InputField";
+import InputField from "../../../../../../Common/InputField";
 
 const SalaryAndFacilities = ({ jobDetails, setJobDetails }) => {
   const handleChange = (e) => {

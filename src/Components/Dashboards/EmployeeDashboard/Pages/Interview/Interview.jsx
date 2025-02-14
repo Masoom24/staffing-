@@ -43,8 +43,12 @@ function Interview() {
               {interviews.map((interview) => (
                 <tr key={interview.id}>
                   <td>{interview.candidate}</td>
-                  <td className="hidden md:table-cell">{interview.jobDetails}</td>
-                  <td className="hidden md:table-cell">{interview.scheduleDate}</td>
+                  <td className="hidden md:table-cell">
+                    {interview.jobDetails}
+                  </td>
+                  <td className="hidden md:table-cell">
+                    {interview.scheduleDate}
+                  </td>
                   <td className="hidden md:table-cell">{interview.location}</td>
                   <td className="hidden md:table-cell">{interview.created}</td>
                   <td>
@@ -59,12 +63,14 @@ function Interview() {
                     </span>
                   </td>
                   <td>
-                    <button className="btn btn-sm bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white">
-                      <EditIcon />
-                    </button>
-                    <button className="btn btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white">
-                      <DeleteIcon />
-                    </button>
+                    <div className="flex flex-row gap-2">
+                      <button className="btn p-2 bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white">
+                        <EditIcon />
+                      </button>
+                      <button className="btn p-2 bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white">
+                        <DeleteIcon />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}

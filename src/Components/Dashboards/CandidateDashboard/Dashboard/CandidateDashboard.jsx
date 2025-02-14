@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import DashboardHome from "./MenuTabs/DashboardHome";
-import SearchJobs from "./MenuTabs/SearchJobs";
-import MyExperience from "./MenuTabs/MyExperience";
-import MyInterview from "./MenuTabs/MyInterview";
-import MyProfile from "./MenuTabs/MyProfile";
-import MyQualification from "./MenuTabs/MyQualification";
+import DashboardHome from "./DashboardHome";
+import SearchJobs from "../Pages/Search Jobs/SearchJobs";
+import MyExperience from "../Pages/My Experience/MyExperience";
+import MyInterview from "../Pages/My Interviews/MyInterview";
+import MyProfile from "../Pages/My Profile/MyProfile";
+import MyQualification from "../Pages/My Qualification/MyQualification";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SearchIcon from "@mui/icons-material/Search";
 import EventNoteIcon from "@mui/icons-material/EventNote";
@@ -13,7 +13,7 @@ import WorkIcon from "@mui/icons-material/Work";
 import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import UpdateProfile from "./MenuTabs/UpdateProfile";
+import UpdateProfile from "../Pages/My Profile/UpdateProfile";
 
 function Dashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard"); // Default tab
@@ -23,16 +23,21 @@ function Dashboard() {
     setActiveTab(tabName);
   };
 
+  const drawerCheckbox = document.getElementById("sider");
+  if (drawerCheckbox) {
+    drawerCheckbox.checked = false;
+  }
+
   return (
     <div className="drawer lg:drawer-open bg-gray-100">
-      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <input id="sider" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content flex flex-col justify-between">
         {/* Main Content */}
         <div>
           <div className="navbar bg-base-100 shadow-md">
             {/* Menu Icon only visible on mobile screens */}
-            <label htmlFor="my-drawer-2" className="btn btn-ghost lg:hidden">
+            <label htmlFor="sider" className="btn btn-ghost lg:hidden">
               <MenuIcon />
             </label>
 

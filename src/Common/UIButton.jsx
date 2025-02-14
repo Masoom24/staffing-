@@ -17,7 +17,7 @@ const UIButton = ({
       className={`flex items-center justify-center border border-[#96BE25] bg-[#96BE25] text-white px-4 py-2 rounded-md text-sm font-medium shadow-md hover:bg-[#75941c] transition-all duration-300`}
       style={style}
     >
-      {startIcon && <span className="mr-2">{startIcon}</span>}
+      {startIcon && <>{startIcon}</>}
       <div>{text || children}</div>
       {endIcon && <span className="ml-2">{endIcon}</span>}
     </button>

@@ -10,12 +10,13 @@ import {
   School,
   Search,
 } from "@mui/icons-material";
-import UIButton from "../../../../Common/UIButton";
+import UIButton from "../../../../../Common/UIButton";
 
 function MyProfile({ handleTabChange }) {
   return (
     <div className="p-4 flex flex-col gap-4">
-      <div className="flex flex-row justify-end gap-2">
+      {/* Header Buttons */}
+      <div className="flex flex-wrap justify-start gap-2 md:justify-end">
         <UIButton onClick={() => handleTabChange("Update Profile")}>
           <EditIcon className="mr-2" />
           Update Profile
@@ -25,17 +26,20 @@ function MyProfile({ handleTabChange }) {
           Generate Resume
         </UIButton>
       </div>
-      {/* Card 1: Profile Details */}
-      <div className="card bg-base-100 shadow-xl">
+
+      {/* Profile Card */}
+      <div className="card bg-base-100 shadow-md">
         <div className="card-body flex flex-col md:flex-row items-center gap-4">
           <div className="avatar">
-            <div className="w-32 md:w-50 rounded-full">
+            <div className="w-24 md:w-32 lg:w-40 rounded-full">
               <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
             </div>
           </div>
           <div className="flex flex-col w-full">
-            <h1 className="text-lg font-bold">Ghamesh Rahangdale</h1>
-            <div className="flex flex-col md:flex-row gap-2">
+            <h1 className="text-xl font-bold text-center md:text-left">
+              Ghamesh Rahangdale
+            </h1>
+            <div className="flex flex-col md:flex-row gap-2 text-sm">
               <p className="flex items-center gap-2">
                 <Email /> ghamesh@example.com
               </p>
@@ -47,21 +51,18 @@ function MyProfile({ handleTabChange }) {
               </p>
             </div>
 
-            <div className="mt-4 mb-4">
+            <div className="mt-4">
               <h1 className="font-bold">Skills</h1>
-              <p className="text-left flex">Web Development, React, Node.js</p>
+              <p className="text-left">Web Development, React, Node.js</p>
             </div>
 
-            <div className="flex-1 w-56 mt-2">
-              <div className="flex justify-between">
-                <h1 className="text-sm">Profile Completion</h1>
-                <h1>
-                  <strong>25%</strong>
-                </h1>
+            <div className="mt-4">
+              <div className="flex justify-between text-sm">
+                <span>Profile Completion</span>
+                <strong>25%</strong>
               </div>
-
               <progress
-                className="progress progress-success w-full md:w-56 h-1.5"
+                className="progress progress-success w-full h-2"
                 value="25"
                 max="100"
               ></progress>
@@ -70,13 +71,11 @@ function MyProfile({ handleTabChange }) {
         </div>
       </div>
 
-      {/* Card 2: Qualifications */}
-
-      {/* Card 2: Qualifications */}
-      <div className="card bg-base-100 shadow-xl">
+      {/* Qualifications Card */}
+      <div className="card bg-base-100 shadow-md">
         <div className="card-body">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold flex items-center gap-2">
+            <h2 className="text-lg font-bold flex items-center gap-2">
               <School /> Qualifications
             </h2>
             <UIButton
@@ -84,15 +83,17 @@ function MyProfile({ handleTabChange }) {
               onClick={() => handleTabChange("My Qualification")}
             />
           </div>
-          <div className="mt-4 text-center text-gray-500">No data found.</div>
+          <div className="mt-4 text-center text-gray-500 text-sm">
+            No data found.
+          </div>
         </div>
       </div>
 
-      {/* Card 3: Experience */}
-      <div className="card bg-base-100 shadow-xl">
+      {/* Experience Card */}
+      <div className="card bg-base-100 shadow-md">
         <div className="card-body">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold flex items-center gap-2">
+            <h2 className="text-lg font-bold flex items-center gap-2">
               <Work /> Experience
             </h2>
             <UIButton
@@ -100,19 +101,23 @@ function MyProfile({ handleTabChange }) {
               onClick={() => handleTabChange("My Experience")}
             />
           </div>
-          <div className="mt-4 text-center text-gray-500">No data found.</div>
+          <div className="mt-4 text-center text-gray-500 text-sm">
+            No data found.
+          </div>
         </div>
       </div>
 
-      {/* Card 4: Job Search Requirements */}
-      <div className="card bg-base-100 shadow-xl">
+      {/* Job Search Requirements Card */}
+      <div className="card bg-base-100 shadow-md">
         <div className="card-body">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-bold flex items-center gap-2">
+            <h2 className="text-lg font-bold flex items-center gap-2">
               <Search /> Job Search Requirements
             </h2>
           </div>
-          <div className="mt-4 text-center text-gray-500">No data found.</div>
+          <div className="mt-4 text-center text-gray-500 text-sm">
+            No data found.
+          </div>
         </div>
       </div>
     </div>

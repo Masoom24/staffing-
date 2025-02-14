@@ -16,18 +16,23 @@ import Candidates from "../Pages/Candidates/Candidates";
 import Clients from "../Pages/Clients/Clients";
 import Home from "../Pages/Home";
 import HumanResource from "../Pages/HumanResource";
-import Interview from "../Pages/Interview";
-import JobPosts from "../Pages/JobPosts";
+import Interview from "../Pages/Interviews/Interview";
+import JobPosts from "../Pages/JobPosts/JobPosts";
 import Pages from "../Pages/Pages";
 import Tools from "../Pages/Tools";
 import Footer from "./Footer";
+import CreateNewJob from "../Pages/JobPosts/CreateNewJob";
+import JobDetails from "../Pages/JobPosts/JobDetails";
 
 function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard"); // Default tab
-
-  const handleTabChange = (tabName) => {
+  const [selectedJob, setSelectedJob] = useState(null);  // State to store selected job
+  
+  const handleTabChange = (tabName, job = null) => {
     setActiveTab(tabName);
+    if (job) setSelectedJob(job);  // Store job details if provided
   };
+
 
   const drawerCheckbox = document.getElementById("sider");
   if (drawerCheckbox) {
@@ -36,7 +41,6 @@ function AdminDashboard() {
   return (
     <div className="drawer lg:drawer-open bg-gray-100">
       <input id="sider" type="checkbox" className="drawer-toggle" />
-
       <div className="drawer-content flex flex-col justify-between">
         {/* Main Content */}
         <div>
@@ -55,11 +59,20 @@ function AdminDashboard() {
           {activeTab === "Admin&Staffs Roles" && <AdminAndStaffRoles />}
           {activeTab === "Candidates" && <Candidates />}
           {activeTab === "Clients" && <Clients />}
-          {activeTab === "Job Posts" && <JobPosts />}
+          {activeTab === "Job Posts" && (
+            <JobPosts handleTabChange={handleTabChange} activeTab={activeTab} />
+          )}
           {activeTab === "Interview" && <Interview />}
           {activeTab === "Human Resource" && <HumanResource />}
           {activeTab === "Pages" && <Pages />}
           {activeTab === "Tools" && <Tools />}
+
+          {/*Job Post*/}
+          {activeTab === "Create Job Post" && <CreateNewJob />}
+          {activeTab === "Job Description" && selectedJob && (
+            <JobDetails job={selectedJob} handleTabChange={handleTabChange} />  // Pass selected job to JobDetails
+          )}
+          
         </div>
 
         {/* Footer */}

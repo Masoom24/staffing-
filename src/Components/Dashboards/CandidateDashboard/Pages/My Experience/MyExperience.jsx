@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import UIButton from "../../../../Common/UIButton";
+import UIButton from "../../../../../Common/UIButton";
 import CloseIcon from "@mui/icons-material/Close";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from "@mui/icons-material/Add";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import InputField from "../../../../../Common/InputField";
 
 function MyExperience() {
   const [form, setForm] = useState(false);
@@ -41,17 +43,16 @@ function MyExperience() {
   return (
     <div className="flex flex-col m-4">
       <div>
-        <UIButton
-          text="Add Experience"
-          onClick={() => setForm(true)}
-          className="btn btn-primary"
-        />
+        <UIButton text="Add Experience" startIcon={<AddIcon/>} onClick={() => setForm(true)} />
       </div>
 
       {/* Experience Cards */}
       <div>
         {experiences.map((exp, index) => (
-          <div key={index} className="card w-full mt-4 bg-base-100 card-lg shadow-sm">
+          <div
+            key={index}
+            className="card w-full mt-4 bg-base-100 card-lg shadow-sm"
+          >
             <div className="card-body">
               <h2 className="text-lg font-bold text-lime-500">
                 {exp.organization}
@@ -72,8 +73,12 @@ function MyExperience() {
                 <strong>Job Profile:</strong> {exp.jobProfile}
               </h2>
               <div className="flex justify-end card-action">
-                <button className="btn border-lime-500 bg-white text-lime-500 mr-2"><EditIcon/></button>
-                <button className="btn bg-lime-500 text-white"><DeleteIcon className="text-white"/></button>
+                <button className="btn border-lime-500 bg-white text-lime-500 mr-2">
+                  <EditIcon />
+                </button>
+                <button className="btn bg-lime-500 text-white">
+                  <DeleteIcon className="text-white" />
+                </button>
               </div>
             </div>
           </div>
@@ -95,82 +100,61 @@ function MyExperience() {
             </div>
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-2">
-                <label htmlFor="organization">Organization</label>
-                <input
-                  type="text"
+                <InputField
+                  label="Organization"
+                  required
                   name="organization"
+                  type="text"
                   placeholder="Ex. The SkyIT"
                   value={formData.organization}
                   onChange={handleInputChange}
-                  required
-                  className="border border-gray-300 bg-gray-200 p-2 rounded-md focus:outline-none"
                 />
-
-                <label htmlFor="designation">Designation</label>
-                <input
-                  type="text"
+                <InputField
+                  label="Designation"
+                  required
                   name="designation"
+                  type="text"
                   placeholder="Ex. Software Engineer"
                   value={formData.designation}
                   onChange={handleInputChange}
-                  required
-                  className="border border-gray-300 bg-gray-200 p-2 rounded-md focus:outline-none"
                 />
-
-                <label htmlFor="currentCompany">
-                  Is this your current company?
-                </label>
-                <select
+                <InputField
+                  label="Is this your current company?"
                   name="currentCompany"
+                  type="select"
+                  options={["Yes", "No"]}
                   value={formData.currentCompany}
                   onChange={handleInputChange}
-                  className="border border-gray-300 bg-gray-200 p-2 rounded-md focus:outline-none"
-                >
-                  <option value="">Select</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </select>
-
-                <label htmlFor="startYear">Started Working from?</label>
-                <input
-                  type="text"
+                />
+                <InputField
+                  label="Started Working from?"
+                  required
                   name="startYear"
+                  type="text"
                   placeholder="2025"
                   value={formData.startYear}
                   onChange={handleInputChange}
-                  required
-                  className="border border-gray-300 bg-gray-200 p-2 rounded-md focus:outline-none"
                 />
-
-                <label htmlFor="keySkills">Key Skills</label>
-                <input
-                  type="text"
+                <InputField
+                  label="Key Skills"
+                  required
                   name="keySkills"
+                  type="text"
                   placeholder="Ex. React, MERN"
                   value={formData.keySkills}
                   onChange={handleInputChange}
-                  required
-                  className="border border-gray-300 bg-gray-200 p-2 rounded-md focus:outline-none"
                 />
-
-                <label htmlFor="jobProfile">Job Profile</label>
-                <input
-                  type="text"
+                <InputField
+                  label="Job Profile"
+                  required
                   name="jobProfile"
+                  type="text"
                   placeholder="Your LinkedIn Profile"
                   value={formData.jobProfile}
                   onChange={handleInputChange}
-                  required
-                  className="border border-gray-300 bg-gray-200 p-2 rounded-md focus:outline-none"
                 />
               </div>
-
-              <button
-                type="submit"
-                className="btn btn-primary text-white bg-lime-400 border-0 mt-4"
-              >
-                Add Experience
-              </button>
+              <UIButton type="submit">Add Experience</UIButton>
             </form>
           </div>
         </div>
