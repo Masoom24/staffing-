@@ -67,7 +67,7 @@ function AddJobPost({handleTabChange}) {
         />
       </div>
       <div className="card-body bg-white m-4 flex flex-row justify-end ">
-        <UIButton>Create Job</UIButton>
+        <UIButton>Add Job</UIButton>
       </div>
     </div>
   );

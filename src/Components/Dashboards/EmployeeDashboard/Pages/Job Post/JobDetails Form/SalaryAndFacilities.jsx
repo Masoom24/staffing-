@@ -10,7 +10,7 @@ const SalaryAndFacilities = ({ jobDetails, setJobDetails }) => {
   return (
     <form style={{ maxWidth: "none" }}>
       <h1 className="pb-4">Salary and Facilities</h1>
-      
+
       <InputField
         label="Facilities"
         name="facilities"
@@ -18,20 +18,23 @@ const SalaryAndFacilities = ({ jobDetails, setJobDetails }) => {
         onChange={handleChange}
         placeholder="Enter Facilities"
       />
-      <InputField
-        label="CTC Salary"
-        name="ctcSalary"
-        value={jobDetails.ctcSalary}
-        onChange={handleChange}
-        placeholder="Enter CTC Salary"
-      />
-      <InputField
-        label="In Hand Salary"
-        name="inHandSalary"
-        value={jobDetails.inHandSalary}
-        onChange={handleChange}
-        placeholder="Enter In Hand Salary"
-      />
+      <div className="flex flex-row gap-4">
+        <InputField
+          label="CTC Salary"
+          name="ctcSalary"
+          value={jobDetails.ctcSalary}
+          onChange={handleChange}
+          placeholder="Enter CTC Salary"
+        />
+        <InputField
+          label="In Hand Salary"
+          name="inHandSalary"
+          value={jobDetails.inHandSalary}
+          onChange={handleChange}
+          placeholder="Enter In Hand Salary"
+        />
+      </div>
+
       <InputField
         label="Salary Deduction Details"
         name="salaryDeductions"

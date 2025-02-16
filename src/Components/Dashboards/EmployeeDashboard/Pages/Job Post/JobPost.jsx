@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
@@ -8,6 +8,9 @@ import UIButton from "../../../../../Common/UIButton";
 import SearchBar from "../../../../../Common/SearchBar";
 
 function JobPost({ handleTabChange }) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
   const jobs = [
     {
       id: 1,
@@ -31,11 +34,33 @@ function JobPost({ handleTabChange }) {
       description:
         "Manage campaigns, social media presence, and marketing strategies.",
     },
+    // Add more job entries as needed
   ];
+
+  const [job, setJob] = useState(jobs) 
+  const totalPages = Math.ceil(job.length / itemsPerPage);
+  const indexOfFirstItem = (currentPage - 1) * itemsPerPage;
+  const paginatedJobs = job.slice(indexOfFirstItem, indexOfFirstItem + itemsPerPage);
+
+  const onPageChange = (page) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
 
   const openJobDescription = (job) => {
     handleTabChange("Job Description", job);
   };
+
+  const handleEdit = (job) => {
+    console.log("Editing job:", job);
+    handleTabChange("Edit Job Post", job);
+  };
+
+  const handleDelete = (id) => {
+    setJob((prevJobs) => prevJobs.filter((item) => item.id !== id));
+  };
+  
 
   return (
     <div className="m-4">
@@ -51,25 +76,20 @@ function JobPost({ handleTabChange }) {
       <div className="card bg-white border-gray-200 p-4">
         {/* Search and Filter Section */}
         <div className="flex flex-col items-start lg:flex-row justify-between items-center gap-4 mb-4">
-          <SearchBar/>
-
-          <div className="md:items-center flex gap-4">
-            <UIButton>
-              <FilterAltIcon />
-              Filter
-              <ExpandMoreIcon />
-            </UIButton>
-          </div>
+          <SearchBar />
+          <UIButton>
+            <FilterAltIcon />
+            Filter
+            <ExpandMoreIcon />
+          </UIButton>
         </div>
 
         {/* Job Table */}
         <div className="overflow-x-auto">
           <table className="table w-full">
-            {/* Table Head */}
             <thead>
               <tr>
                 <th>Job Details</th>
-                {/* These columns are visible on medium (md) screens and up */}
                 <th className="hidden md:table-cell">Job Category</th>
                 <th className="hidden md:table-cell">Job Timing</th>
                 <th className="hidden md:table-cell">Salary</th>
@@ -78,26 +98,24 @@ function JobPost({ handleTabChange }) {
                 <th>Actions</th>
               </tr>
             </thead>
-            {/* Table Body */}
             <tbody>
-              {jobs.map((job) => (
+              {paginatedJobs.map((job) => (
                 <tr key={job.id}>
                   <td>
                     <button
                       onClick={() => openJobDescription(job)}
-                      className="text-blue-600 font-bold cursor-pointer"
+                      className="text-sky-500 font-bold cursor-pointer"
                     >
                       {job.details}
                     </button>
                   </td>
-                  {/* These columns are hidden on mobile */}
                   <td className="hidden md:table-cell">{job.category}</td>
                   <td className="hidden md:table-cell">{job.timing}</td>
                   <td className="hidden md:table-cell">{job.salary}</td>
                   <td className="hidden md:table-cell">{job.created}</td>
                   <td>
                     <span
-                      className={`badge ${
+                      className={`badge badge-sm ${
                         job.status === "Active"
                           ? "badge-success"
                           : "badge-error"
@@ -108,10 +126,16 @@ function JobPost({ handleTabChange }) {
                   </td>
                   <td>
                     <div className="flex flex-col sm:flex-row gap-2">
-                      <button className="btn btn-sm p-2 bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white md:p-2">
+                      <button
+                        onClick={() => handleEdit(job)}
+                        className="btn btn-sm p-2 bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white"
+                      >
                         <EditIcon />
                       </button>
-                      <button className="btn p-2 btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white">
+                      <button
+                        onClick={() => handleDelete(job.id)}
+                        className="btn p-2 btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+                      >
                         <DeleteIcon />
                       </button>
                     </div>
@@ -121,19 +145,37 @@ function JobPost({ handleTabChange }) {
             </tbody>
           </table>
 
-          <div className="flex justify-between m-4">
-            <select defaultValue="Select Page Number" className="select w-20">
-              <option disabled={true}>Page Number</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+          {/* Pagination */}
+          <div className="m-4 flex justify-between">
+            <h1>
+              Showing <b>{indexOfFirstItem + 1} - {indexOfFirstItem + paginatedJobs.length}</b> of <b>{jobs.length}</b> Records
+            </h1>
             <div className="join">
-              <button className="join-item btn bg-white border-0">«</button>
-              <button className="join-item btn bg-lime-400 rounded-md">
-                1
+              <button
+                className="btn btn-ghost"
+                onClick={() => onPageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                Prev
               </button>
-              <button className="join-item btn bg-white border-0">»</button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  className={`btn rounded-md ${
+                    page === currentPage ? "bg-lime-400 text-white" : "bg-gray-200"
+                  }`}
+                  onClick={() => onPageChange(page)}
+                >
+                  {page}
+                </button>
+              ))}
+              <button
+                className="btn btn-ghost"
+                onClick={() => onPageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
             </div>
           </div>
         </div>

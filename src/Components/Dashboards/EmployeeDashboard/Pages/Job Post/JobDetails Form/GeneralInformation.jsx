@@ -56,10 +56,11 @@ const GeneralInformation = ({ jobDetails, handleChange }) => {
             value={jobDetails.jobTitle}
             onChange={handleChange}
             placeholder="Enter Job Title"
+            required
           />
 
           <label className="block text-sm font-medium mb-1">
-            Job Description
+            Job Description <span className="text-red-400">*</span>
           </label>
           <EditorComponent />
         </div>
@@ -71,13 +72,15 @@ const GeneralInformation = ({ jobDetails, handleChange }) => {
             value={jobDetails.position}
             onChange={handleChange}
             placeholder="Enter Position"
+            required
           />
           <InputField
-            label="Highest Qualification"
-            name="highestQualification"
+            label="Required Qualification"
+            name="requiredQualification"
             value={jobDetails.highestQualification}
             onChange={handleChange}
             placeholder="Enter Qualification"
+            required
           />
         </div>
 
@@ -88,6 +91,7 @@ const GeneralInformation = ({ jobDetails, handleChange }) => {
             value={jobDetails.minExperience}
             onChange={handleChange}
             placeholder="Enter Experience"
+            required
           />
           <InputField
             label="Maximum Experience"
@@ -121,12 +125,13 @@ const GeneralInformation = ({ jobDetails, handleChange }) => {
         />
         <div className="flex flex-row gap-4">
           <InputField
-            label="Job Type"
+            label="Job Timing"
             name="joiningType"
             value={jobDetails.jobType}
             onChange={handleChange}
             options={jobType}
             type="select"
+            required
           />
           <InputField
             label="Joining Date"

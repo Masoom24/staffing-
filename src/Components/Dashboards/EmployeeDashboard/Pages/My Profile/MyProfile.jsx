@@ -1,9 +1,10 @@
 import React from "react";
 import UIButton from "../../../../../Common/UIButton";
 import EditIcon from "@mui/icons-material/Edit";
-import { Email, Phone, Home } from "@mui/icons-material";
+import { Email, Phone, Home, Create } from "@mui/icons-material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
+import CreateCard from "../../../../../Common/CreateCard";
 
 function MyProfile({ handleTabChange }) {
   const mockData = {
@@ -34,12 +35,14 @@ function MyProfile({ handleTabChange }) {
         </UIButton>
       </div>
 
-      {/* Company Details Card */}
-      <div className="card-body bg-white rounded-md shadow-md p-4">
-        <h2 className="card-title flex items-center space-x-2 text-lg font-bold">
-          <AccountCircleOutlinedIcon />
-          <span>Company Details</span>
-        </h2>
+      <CreateCard
+        title={
+          <>
+            {" "}
+            <AccountCircleOutlinedIcon /> Company Details
+          </>
+        }
+      >
         <div className="flex flex-col md:flex-row items-center mt-4">
           {/* Company Logo */}
           <div className="avatar flex-shrink-0">
@@ -75,32 +78,35 @@ function MyProfile({ handleTabChange }) {
             </div>
           </div>
         </div>
-      </div>
+      </CreateCard>
 
-      {/* Authorised Person Card */}
-      <div className="card-body bg-white rounded-md shadow-md p-4 mt-4">
-        <h2 className="card-title flex items-center space-x-2 text-lg font-bold">
-          <RecordVoiceOverIcon />
-          <span>Authorised Person</span>
-        </h2>
-        <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <div className="text-md">
-            <strong>Person Name: </strong>
-            <div>{autherisedPerson.personName}</div>
+      <div className="mt-4">
+        <CreateCard
+          title={
+            <>
+              <RecordVoiceOverIcon /> Authorised Person
+            </>
+          }
+        >
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <div className="text-md">
+              <strong>Person Name: </strong>
+              <div>{autherisedPerson.personName}</div>
+            </div>
+            <div className="text-md">
+              <strong>Position: </strong>
+              <div>{autherisedPerson.position}</div>
+            </div>
+            <div className="text-md">
+              <strong>Phone: </strong>
+              <div>{autherisedPerson.personPhone}</div>
+            </div>
+            <div className="text-md">
+              <strong>Email: </strong>
+              <div>{autherisedPerson.personEmail}</div>
+            </div>
           </div>
-          <div className="text-md">
-            <strong>Position: </strong>
-            <div>{autherisedPerson.position}</div>
-          </div>
-          <div className="text-md">
-            <strong>Phone: </strong>
-            <div>{autherisedPerson.personPhone}</div>
-          </div>
-          <div className="text-md">
-            <strong>Email: </strong>
-            <div>{autherisedPerson.personEmail}</div>
-          </div>
-        </div>
+        </CreateCard>
       </div>
     </div>
   );

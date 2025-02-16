@@ -12,7 +12,8 @@ import MyProfile from "../Pages/My Profile/MyProfile";
 import Interview from "../Pages/Interview/Interview";
 import JobDescription from "../Pages/Job Post/JobDescription";
 import UpdateProfile from "../Pages/My Profile/UpdateProfile";
-
+import UIButton from "../../../../Common/UIButton";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 function EmployeeDashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard");
@@ -100,8 +101,11 @@ function EmployeeDashboard() {
               <MenuIcon />
             </button>
           </div>
-          <div className="flex-1">
-            <a className="btn btn-ghost text-xl">{activeTab}</a>
+          <div className="flex-1 flex justify-between">
+            <a className="btn btn-ghost text-lg">{activeTab}</a>
+            <div className="mr-2">
+              <UIButton> Logout <LogoutIcon/></UIButton>
+            </div>
           </div>
         </div>
 
