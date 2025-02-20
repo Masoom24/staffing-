@@ -15,24 +15,30 @@ import AdminAndStaffRoles from "../Pages/Admin&Staffs/AdminAndStaffRoles";
 import Candidates from "../Pages/Candidates/Candidates";
 import Clients from "../Pages/Clients/Clients";
 import Home from "../Pages/Home";
-import HumanResource from "../Pages/HumanResource";
 import Interview from "../Pages/Interviews/Interview";
 import JobPosts from "../Pages/JobPosts/JobPosts";
-import Pages from "../Pages/Pages";
-import Tools from "../Pages/Tools";
+import Pages from "../Pages/PagesTab/Pages";
+import Tools from "../Pages/Tools/AppVersion";
 import Footer from "./Footer";
 import CreateNewJob from "../Pages/JobPosts/CreateNewJob";
 import JobDetails from "../Pages/JobPosts/JobDetails";
+import AddEducation from "../Pages/Human Resource/AddEducations";
+import AddIndustries from "../Pages/Human Resource/AddIndustries";
+import AddJobTimings from "../Pages/Human Resource/AddJobTimings";
+import SEODetails from "../Pages/PagesTab/SEODetails";
+import ClientDetails from "../Pages/PagesTab/ClientDetails";
+import ContactInfo from "../Pages/PagesTab/ContactInfo";
+import Settings from "../Pages/Tools/Settings";
+import AppVersion from "../Pages/Tools/AppVersion";
 
 function AdminDashboard() {
   const [activeTab, setActiveTab] = useState("Dashboard"); // Default tab
-  const [selectedJob, setSelectedJob] = useState(null);  // State to store selected job
-  
+  const [selectedJob, setSelectedJob] = useState(null); // State to store selected job
+
   const handleTabChange = (tabName, job = null) => {
     setActiveTab(tabName);
-    if (job) setSelectedJob(job);  // Store job details if provided
+    if (job) setSelectedJob(job); // Store job details if provided
   };
-
 
   const drawerCheckbox = document.getElementById("sider");
   if (drawerCheckbox) {
@@ -70,9 +76,21 @@ function AdminDashboard() {
           {/*Job Post*/}
           {activeTab === "Create Job Post" && <CreateNewJob />}
           {activeTab === "Job Description" && selectedJob && (
-            <JobDetails job={selectedJob} handleTabChange={handleTabChange} />  // Pass selected job to JobDetails
+            <JobDetails job={selectedJob} handleTabChange={handleTabChange} /> // Pass selected job to JobDetails
           )}
-          
+
+          {/* Human Resourse */}
+          {activeTab === "Education" && <AddEducation />}
+          {activeTab === "Industries" && <AddIndustries />}
+          {activeTab === "Job Timing" && <AddJobTimings />}
+
+          {/* Pages  */}
+          {activeTab === "SEO Details" && <SEODetails />}
+          {activeTab === "Home Client Details" && <ClientDetails />}
+          {activeTab === "Contact Info" && <ContactInfo />}
+          {/* Tools  */}
+          {activeTab === "Settings" && <Settings />}
+          {activeTab === "App Version" && <AppVersion />}
         </div>
 
         {/* Footer */}
@@ -148,21 +166,63 @@ function AdminDashboard() {
               <EventAvailableIcon className="mr-2" /> Interview
             </a>
           </li>
-          <li onClick={() => handleTabChange("Human Resource")}>
-            <a>
-              <GroupIcon className="mr-2" /> Human Resource
-            </a>
-          </li>
-          <li onClick={() => handleTabChange("Pages")}>
-            <a>
-              <DescriptionIcon className="mr-2" /> Pages
-            </a>
-          </li>
-          <li onClick={() => handleTabChange("Tools")}>
-            <a>
-              <BuildIcon className="mr-2" /> Tools
-            </a>
-          </li>
+          <ul>
+            <li>
+              <details>
+                <summary className="flex items-center">
+                  <GroupIcon className="mr-2" /> Human Resource
+                </summary>
+                <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+                  <li onClick={() => handleTabChange("Education")}>
+                    <a>Education</a>
+                  </li>
+                  <li onClick={() => handleTabChange("Industries")}>
+                    <a>Industries</a>
+                  </li>
+                  <li onClick={() => handleTabChange("Job Timing")}>
+                    <a>Job Timing</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <details>
+                <summary className="flex items-center">
+                  <DescriptionIcon className="mr-2" /> Pages
+                </summary>
+                <ul className="list-disc pl-5">
+                  <li onClick={() => handleTabChange("SEO Details")}>
+                    <a>SEO Details</a>
+                  </li>
+                  <li onClick={() => handleTabChange("Home Client Details")}>
+                    <a>Home - Client Section</a>
+                  </li>
+                  <li onClick={() => handleTabChange("Contact Info")}>
+                    <a>Contact Info</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <details>
+                <summary className="flex items-center">
+                  <BuildIcon className="mr-2" /> Tools
+                </summary>
+                <ul className="list-disc pl-5">
+                  <li onClick={() => handleTabChange("Settings")}>
+                    <a>Settings</a>
+                  </li>
+                  <li onClick={() => handleTabChange("App Version")}>
+                    <a>App Version</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+          </ul>
         </ul>
       </div>
     </div>

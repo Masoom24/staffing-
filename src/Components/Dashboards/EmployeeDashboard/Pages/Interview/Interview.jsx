@@ -74,7 +74,7 @@ function Interview() {
 
   return (
     <div className="m-4">
-      <div className="card bg-white border-gray-200 p-4">
+      <div className="card bg-white shadow-md rounded-md p-4">
         <div className="flex flex-row justify-start gap-4">
           <SearchBar/>
         </div>

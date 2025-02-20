@@ -6,7 +6,7 @@ function Dashboard() {
       <div className="flex flex-col md:flex-row gap-4">
         {/* Left Section */}
         <div className="flex flex-col gap-4 md:w-1/3">
-          <div className="card w-full bg-base-100 shadow-sm">
+          <div className="card w-full bg-base-100 shadow-md">
             <div className="card-body">
               <h1 className="text-3xl md:text-4xl font-bold">0</h1>
               <h2 className="card-title text-base md:text-lg">
@@ -14,7 +14,7 @@ function Dashboard() {
               </h2>
             </div>
           </div>
-          <div className="card w-full bg-base-100 shadow-sm">
+          <div className="card w-full bg-base-100 shadow-md">
             <div className="card-body">
               <h1 className="text-3xl md:text-4xl font-bold">0</h1>
               <h2 className="card-title text-base md:text-lg">
@@ -26,7 +26,7 @@ function Dashboard() {
 
         {/* Right Section: Recent Interviews */}
         <div className="md:w-2/3">
-          <div className="card bg-base-100 shadow-sm">
+          <div className="card bg-base-100 shadow-md">
             <div className="card-body">
               <h2 className="card-title font-bold text-lg">
                 Recent Interviews Scheduled

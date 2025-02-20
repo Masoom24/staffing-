@@ -6,19 +6,19 @@ function DashboardHome() {
       <div className="flex flex-wrap lg:flex-nowrap gap-4">
         {/* Left Section */}
         <div className="w-full lg:w-1/3 flex flex-col gap-4">
-          <div className="card w-full bg-base-100 shadow-sm">
+          <div className="card w-full bg-base-100 shadow-md">
             <div className="card-body">
               <h1 className="text-2xl font-bold">0</h1>
               <h2 className="card-title">Total Job Applied</h2>
             </div>
           </div>
-          <div className="card w-full bg-base-100 shadow-sm">
+          <div className="card w-full bg-base-100 shadow-md">
             <div className="card-body">
               <h1 className="text-2xl font-bold">0</h1>
               <h2 className="card-title">No of Qualifications</h2>
             </div>
           </div>
-          <div className="card w-full bg-base-100 shadow-sm">
+          <div className="card w-full bg-base-100 shadow-md">
             <div className="card-body">
               <h1 className="text-2xl font-bold">0</h1>
               <h2 className="card-title">Total Job Applied</h2>
@@ -28,7 +28,7 @@ function DashboardHome() {
 
         {/* Right Section: Recent Interviews */}
         <div className="w-full lg:w-2/3">
-          <div className="card bg-base-100 shadow-sm">
+          <div className="card bg-base-100 shadow-md">
             <div className="card-body">
               <h2 className="card-title text-lg font-bold">Recent Interviews</h2>
               <div className="overflow-x-auto">

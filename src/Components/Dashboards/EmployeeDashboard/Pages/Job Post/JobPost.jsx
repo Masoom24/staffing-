@@ -73,7 +73,7 @@ function JobPost({ handleTabChange }) {
       </div>
 
       {/* Card containing Search, Filter, and Table */}
-      <div className="card bg-white border-gray-200 p-4">
+      <div className="card bg-white border-gray-200 p-4 shadow-md rounded-md">
         {/* Search and Filter Section */}
         <div className="flex flex-col items-start lg:flex-row justify-between items-center gap-4 mb-4">
           <SearchBar />
@@ -128,13 +128,13 @@ function JobPost({ handleTabChange }) {
                     <div className="flex flex-col sm:flex-row gap-2">
                       <button
                         onClick={() => handleEdit(job)}
-                        className="btn btn-sm p-2 bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white"
+                        className="btn btn-md p-2 bg-white border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-white"
                       >
                         <EditIcon />
                       </button>
                       <button
                         onClick={() => handleDelete(job.id)}
-                        className="btn p-2 btn-sm bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+                        className="btn p-2 btn-md bg-white border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
                       >
                         <DeleteIcon />
                       </button>

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import UIButton from "../../../../../Common/UIButton";
 import QualificationForm from "./QualificationForm";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
+import QualificationDetails from "./QualificationDetails";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 
 function MyQualification() {
   const [showForm, setShowForm] = useState(false);
   const [qualifications, setQualifications] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
   const [formData, setFormData] = useState({
     education: "",
     degree: "",
@@ -28,7 +28,14 @@ function MyQualification() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setQualifications([...qualifications, formData]);
+    if (editIndex !== null) {
+      const updatedQualifications = [...qualifications];
+      updatedQualifications[editIndex] = formData;
+      setQualifications(updatedQualifications);
+      setEditIndex(null);
+    } else {
+      setQualifications([...qualifications, formData]);
+    }
     setFormData({
       education: "",
       degree: "",
@@ -49,16 +56,30 @@ function MyQualification() {
 
   const handleEdit = (index) => {
     setFormData(qualifications[index]);
+    setEditIndex(index);
     setShowForm(true);
-    setQualifications(qualifications.filter((_, i) => i !== index));
   };
 
   return (
     <div className="flex flex-col m-4">
       <div>
         <UIButton
-          onClick={() => setShowForm(true)}
-          startIcon={<AddIcon/>}
+          onClick={() => {
+            setFormData({
+              education: "",
+              degree: "",
+              specialization: "",
+              university: "",
+              courseType: "",
+              passoutYear: "",
+              board: "",
+              school: "",
+              percentage: "",
+            });
+            setEditIndex(null);
+            setShowForm(true);
+          }}
+          startIcon={<AddIcon />}
           text="Add Qualification"
           className="btn btn-primary"
         />
@@ -73,7 +94,11 @@ function MyQualification() {
             >
               <CloseIcon />
             </button>
-            <h3 className="font-bold text-lg">Add Qualification</h3>
+            <h3 className="font-bold text-lg">
+              {editIndex !== null ? "Edit Qualification" : "Add Qualification"}
+            </h3>
+
+            {/* Add Qualification form */}
             <QualificationForm
               formData={formData}
               handleInputChange={handleInputChange}
@@ -84,41 +109,13 @@ function MyQualification() {
         </div>
       )}
 
-      <div className="mt-4 space-y-4 w-full text-left">
-        {qualifications.map((qualification, index) => (
-          <div key={index} className="card bg-base-100 shadow-md p-4">
-            <h1 className="font-bold text-lg">{qualification.education}</h1>
-            {qualification.board && <h1>Board: {qualification.board}</h1>}
-            {qualification.school && <h1>School: {qualification.school}</h1>}
-            {qualification.percentage && (
-              <h1>Percentage: {qualification.percentage}</h1>
-            )}
-            {qualification.degree && <h1>Degree: {qualification.degree}</h1>}
-            {qualification.specialization && (
-              <h1>Specialization: {qualification.specialization}</h1>
-            )}
-            {qualification.university && (
-              <h1>University: {qualification.university}</h1>
-            )}
-            {qualification.courseType && (
-              <h1>Course Type: {qualification.courseType}</h1>
-            )}
-            {qualification.passoutYear && (
-              <h1>Passout Year: {qualification.passoutYear}</h1>
-            )}
-            <div className="flex justify-end space-x-2 mt-2">
-              <button onClick={() => handleEdit(index)} className="btn btn-sm">
-                <EditIcon />
-              </button>
-              <button
-                onClick={() => handleDelete(index)}
-                className="btn btn-sm"
-              >
-                <DeleteIcon />
-              </button>
-            </div>
-          </div>
-        ))}
+      {/* Qualification Details Component */}
+      <div>
+        <QualificationDetails
+          qualifications={qualifications}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+        />
       </div>
     </div>
   );

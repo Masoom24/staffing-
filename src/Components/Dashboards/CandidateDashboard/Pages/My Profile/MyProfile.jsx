@@ -2,15 +2,9 @@ import React from "react";
 import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
-import {
-  Email,
-  Phone,
-  Public,
-  Work,
-  School,
-  Search,
-} from "@mui/icons-material";
+import { Email, Phone, Public, Work, School, Search } from "@mui/icons-material";
 import UIButton from "../../../../../Common/UIButton";
+import CreateCard from "../../../../../Common/CreateCard"; // Import your reusable card component
 
 function MyProfile({ handleTabChange }) {
   return (
@@ -28,8 +22,8 @@ function MyProfile({ handleTabChange }) {
       </div>
 
       {/* Profile Card */}
-      <div className="card bg-base-100 shadow-md">
-        <div className="card-body flex flex-col md:flex-row items-center gap-4">
+      <CreateCard title="My Profile">
+        <div className="flex flex-col md:flex-row items-center gap-4">
           <div className="avatar">
             <div className="w-24 md:w-32 lg:w-40 rounded-full">
               <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
@@ -53,7 +47,7 @@ function MyProfile({ handleTabChange }) {
 
             <div className="mt-4">
               <h1 className="font-bold">Skills</h1>
-              <p className="text-left">Web Development, React, Node.js</p>
+              <p className="text-left ">Web Development, React, Node.js</p>
             </div>
 
             <div className="mt-4">
@@ -69,57 +63,34 @@ function MyProfile({ handleTabChange }) {
             </div>
           </div>
         </div>
-      </div>
+      </CreateCard>
 
       {/* Qualifications Card */}
-      <div className="card bg-base-100 shadow-md">
-        <div className="card-body">
-          <div className="flex justify-between items-center">
-            <h2 className="text-lg font-bold flex items-center gap-2">
-              <School /> Qualifications
-            </h2>
-            <UIButton
-              startIcon={<AddIcon />}
-              onClick={() => handleTabChange("My Qualification")}
-            />
-          </div>
-          <div className="mt-4 text-center text-gray-500 text-sm">
-            No data found.
-          </div>
+      <CreateCard title="Qualifications">
+        <div className="flex justify-between items-center">
+          <UIButton
+            startIcon={<AddIcon />}
+            onClick={() => handleTabChange("My Qualification")}
+          />
         </div>
-      </div>
+        <div className="mt-4 text-center text-gray-500 text-sm">No data found.</div>
+      </CreateCard>
 
       {/* Experience Card */}
-      <div className="card bg-base-100 shadow-md">
-        <div className="card-body">
-          <div className="flex justify-between items-center">
-            <h2 className="text-lg font-bold flex items-center gap-2">
-              <Work /> Experience
-            </h2>
-            <UIButton
-              startIcon={<AddIcon />}
-              onClick={() => handleTabChange("My Experience")}
-            />
-          </div>
-          <div className="mt-4 text-center text-gray-500 text-sm">
-            No data found.
-          </div>
+      <CreateCard title="Experience">
+        <div className="flex justify-between items-center">
+          <UIButton
+            startIcon={<AddIcon />}
+            onClick={() => handleTabChange("My Experience")}
+          />
         </div>
-      </div>
+        <div className="mt-4 text-center text-gray-500 text-sm">No data found.</div>
+      </CreateCard>
 
       {/* Job Search Requirements Card */}
-      <div className="card bg-base-100 shadow-md">
-        <div className="card-body">
-          <div className="flex justify-between items-center">
-            <h2 className="text-lg font-bold flex items-center gap-2">
-              <Search /> Job Search Requirements
-            </h2>
-          </div>
-          <div className="mt-4 text-center text-gray-500 text-sm">
-            No data found.
-          </div>
-        </div>
-      </div>
+      <CreateCard title="Job Search Requirements">
+        <div className="mt-4 text-center text-gray-500 text-sm">No data found.</div>
+      </CreateCard>
     </div>
   );
 }
