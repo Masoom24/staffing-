@@ -1,15 +1,15 @@
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import EventNoteIcon from "@mui/icons-material/EventNote";
-import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import WorkIcon from "@mui/icons-material/Work";
-import BusinessIcon from "@mui/icons-material/Business";
-import EventAvailableIcon from "@mui/icons-material/EventAvailable";
-import GroupIcon from "@mui/icons-material/Group";
-import DescriptionIcon from "@mui/icons-material/Description";
-import BuildIcon from "@mui/icons-material/Build";
 import React, { useState } from "react";
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
+import KeyboardDoubleArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowLeftOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
+import BusinessOutlinedIcon from "@mui/icons-material/BusinessOutlined";
+import EventAvailableOutlinedIcon from "@mui/icons-material/EventAvailableOutlined";
+import GroupOutlinedIcon from "@mui/icons-material/GroupOutlined";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
+import BuildOutlinedIcon from "@mui/icons-material/BuildOutlined";
 import AdminAndStaff from "../Pages/Admin&Staffs/AdminAndStaff";
 import AdminAndStaffRoles from "../Pages/Admin&Staffs/AdminAndStaffRoles";
 import Candidates from "../Pages/Candidates/Candidates";
@@ -53,7 +53,7 @@ function AdminDashboard() {
           <div className="navbar bg-base-100 shadow-md">
             {/* Menu Icon only visible on mobile screens */}
             <label htmlFor="sider" className="btn btn-ghost lg:hidden">
-              <MenuIcon />
+              <MenuOutlinedIcon />
             </label>
 
             <div className="flex-1">
@@ -104,12 +104,12 @@ function AdminDashboard() {
           <div className="flex justify-between">
             <h1 className="pl-3 mb-4 text-xl font-bold">Team SkyIT</h1>
             <label htmlFor="sider" className="btn btn-ghost lg:hidden">
-              <KeyboardDoubleArrowLeftIcon />
+              <KeyboardDoubleArrowLeftOutlinedIcon />
             </label>
           </div>
           <li onClick={() => handleTabChange("Dashboard")}>
             <a>
-              <DashboardIcon className="mr-2" /> Dashboard
+              <DashboardOutlinedIcon className="mr-2" /> Dashboard
             </a>
           </li>
           <li>
@@ -120,7 +120,7 @@ function AdminDashboard() {
             <input type="checkbox" className="peer" />
             <div className="collapse-title hover:cursor-pointer ">
               <span className="flex items-center">
-                <SearchIcon className="mr-2" />
+                <SearchOutlinedIcon className="mr-2" />
                 Admin&Staffs
               </span>
             </div>
@@ -148,29 +148,29 @@ function AdminDashboard() {
 
           <li onClick={() => handleTabChange("Candidates")}>
             <a>
-              <EventNoteIcon className="mr-2" /> Candidates
+              <EventNoteOutlinedIcon className="mr-2" /> Candidates
             </a>
           </li>
           <li onClick={() => handleTabChange("Clients")}>
             <a>
-              <BusinessIcon className="mr-2" /> Clients
+              <BusinessOutlinedIcon className="mr-2" /> Clients
             </a>
           </li>
           <li onClick={() => handleTabChange("Job Posts")}>
             <a>
-              <WorkIcon className="mr-2" /> Job Posts
+              <WorkOutlineOutlinedIcon className="mr-2" /> Job Posts
             </a>
           </li>
           <li onClick={() => handleTabChange("Interview")}>
             <a>
-              <EventAvailableIcon className="mr-2" /> Interview
+              <EventAvailableOutlinedIcon className="mr-2" /> Interview
             </a>
           </li>
           <ul>
             <li>
               <details>
                 <summary className="flex items-center">
-                  <GroupIcon className="mr-2" /> Human Resource
+                  <GroupOutlinedIcon className="mr-2" /> Human Resource
                 </summary>
                 <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
                   <li onClick={() => handleTabChange("Education")}>
@@ -190,7 +190,7 @@ function AdminDashboard() {
             <li>
               <details>
                 <summary className="flex items-center">
-                  <DescriptionIcon className="mr-2" /> Pages
+                  <DescriptionOutlinedIcon className="mr-2" /> Pages
                 </summary>
                 <ul className="list-disc pl-5">
                   <li onClick={() => handleTabChange("SEO Details")}>
@@ -210,7 +210,7 @@ function AdminDashboard() {
             <li>
               <details>
                 <summary className="flex items-center">
-                  <BuildIcon className="mr-2" /> Tools
+                  <BuildOutlinedIcon className="mr-2" /> Tools
                 </summary>
                 <ul className="list-disc pl-5">
                   <li onClick={() => handleTabChange("Settings")}>

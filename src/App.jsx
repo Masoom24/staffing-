@@ -12,6 +12,10 @@ import MyExperience from "./Components/Dashboards/CandidateDashboard/Pages/My Ex
 import "./App.css";
 import AdminDashboard from "./Components/Dashboards/Admin/Dashboard/AdminDashboard";
 import JobDetails from "./Components/Dashboards/Admin/Pages/JobPosts/JobDetails";
+import ContactInfo from "./Components/Home/Contact/ContactInfo";
+import JobDetail from "./Components/Home/LatestJobs/JobDetails";
+import JobList from "./Components/Home/JobCategory/JobList";
+
 
 function App() {
   return (
@@ -37,6 +41,10 @@ function App() {
         <Route path="/admin/Login" element={<AdminLogin />} />
         <Route path="/admin/Dashboard" element={<AdminDashboard />} />
         <Route path="/job-details/:id" element={<JobDetails />} />
+
+        <Route path="/joblist" element={<JobList />} />
+        <Route path="/browse/:jobId" element={<JobDetail />} />
+        <Route path="/contactinfo" element={<ContactInfo />} />{" "}
       </Routes>
     </Router>
   );
