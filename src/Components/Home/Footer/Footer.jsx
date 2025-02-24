@@ -7,6 +7,8 @@ import {
   Twitter,
   LinkedIn,
   WhatsApp,
+  KeyboardArrowRight,
+  KeyboardArrowUp,
 } from "@mui/icons-material";
 import { ContactUs } from "../../data/MockData";
 
@@ -15,29 +17,21 @@ const BackToTop = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
+      setVisible(window.scrollY > 300);
     };
 
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <button
-      onClick={scrollToTop}
-      className={`fixed bottom-2 right-5 p-4 bg-[#96be25] text-white rounded-full shadow-xl transition-opacity duration-300 ${
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className={`fixed bottom-4 right-4 md:right-6 p-3 bg-[#96be25] text-white rounded-full shadow-xl transition-opacity duration-300 ${
         visible ? "opacity-100" : "opacity-0"
       }`}
     >
-      ↑
+      <KeyboardArrowUp fontSize="large" />
     </button>
   );
 };
@@ -50,22 +44,21 @@ function Footer() {
   }, []);
 
   return (
-    <footer className="bg-gray-200 text-gray-900 py-6 relative">
-      <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+    <footer className="bg-gray-200 text-gray-900 py-6">
+      <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+        {/* Logo & Play Store */}
         <div className="flex flex-col items-center md:items-start">
           <h2 className="text-2xl font-bold">The Sky It</h2>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png"
             alt="Google Play Store"
-            className="mt-4 w-40"
+            className="mt-4 w-full max-w-[160px]"
           />
         </div>
 
+        {/* Quick Links */}
         <div>
-          <h3
-            className="font-semibold border-b-2 pb-2"
-            style={{ borderColor: "#96be25" }}
-          >
+          <h3 className="font-semibold text-left border-b-2 pb-2 border-[#96be25]">
             Quick Links
           </h3>
           <ul className="mt-4 space-y-2">
@@ -73,8 +66,11 @@ function Footer() {
               { name: "Candidate Login", path: "/candidate-login" },
               { name: "Client Login", path: "/client-login" },
             ].map((link, index) => (
-              <li key={index} className="flex items-center">
-                <span className="mr-2 text-[#96be25]">→</span>
+              <li
+                key={index}
+                className="flex "
+              >
+                <KeyboardArrowRight className="text-[#96be25] mr-2" />
                 <Link to={link.path} className="hover:text-[#96be25]">
                   {link.name}
                 </Link>
@@ -83,11 +79,9 @@ function Footer() {
           </ul>
         </div>
 
+        {/* Pages */}
         <div>
-          <h3
-            className="font-semibold border-b-2 pb-2"
-            style={{ borderColor: "#96be25" }}
-          >
+          <h3 className="font-semibold text-left border-b-2 pb-2 border-[#96be25]">
             Pages
           </h3>
           <ul className="mt-4 space-y-2">
@@ -96,8 +90,11 @@ function Footer() {
               { name: "Services", path: "/services" },
               { name: "About Us", path: "/about-us" },
             ].map((page, index) => (
-              <li key={index} className="flex items-center">
-                <span className="mr-2 text-[#96be25]">→</span>
+              <li
+                key={index}
+                className="flex"
+              >
+                <KeyboardArrowRight className="text-[#96be25] mr-2" />
                 <Link to={page.path} className="hover:text-[#96be25]">
                   {page.name}
                 </Link>
@@ -106,20 +103,18 @@ function Footer() {
           </ul>
         </div>
 
+        {/* Contact Us */}
         <div>
-          <h3
-            className="font-semibold border-b-2 pb-2"
-            style={{ borderColor: "#96be25" }}
-          >
+          <h3 className="font-semibold border-b-2 pb-2 border-[#96be25]">
             Contact Us
           </h3>
           <div className="mt-4 text-sm">
-            <p className="font-bold">Corporate Office Address</p>
+            <h2 className="font-bold">Corporate Office Address</h2>
             {contact ? (
               <>
-                <p>{contact.address}</p>
-                <p>Email: {contact.emails[0]}</p>
-                <p>Phone: {contact.phoneNumbers[0]}</p>
+                <h2>{contact.address}</h2>
+                <h2>Email: {contact.emails[0]}</h2>
+                <h2>Phone: {contact.phoneNumbers[0]}</h2>
               </>
             ) : (
               <p>Loading contact details...</p>
@@ -128,7 +123,8 @@ function Footer() {
         </div>
       </div>
 
-      <div className="flex justify-center space-x-4 mt-4">
+      {/* Social Media Links */}
+      <div className="flex flex-wrap justify-center space-x-4 mt-6">
         {contact ? (
           <>
             <a
@@ -136,42 +132,42 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Facebook className="text-gray-600 hover:text-blue-600 cursor-pointer text-lg" />
+              <Facebook className="text-gray-600 hover:text-blue-600 cursor-pointer text-2xl" />
             </a>
             <a
               href={contact.socialLinks.instagram}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Instagram className="text-gray-600 hover:text-pink-600 cursor-pointer text-lg" />
+              <Instagram className="text-gray-600 hover:text-pink-600 cursor-pointer text-2xl" />
             </a>
             <a
               href={contact.socialLinks.youtube}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <YouTube className="text-gray-600 hover:text-red-600 cursor-pointer text-lg" />
+              <YouTube className="text-gray-600 hover:text-red-600 cursor-pointer text-2xl" />
             </a>
             <a
               href={contact.socialLinks.twitter}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Twitter className="text-gray-600 hover:text-blue-400 cursor-pointer text-lg" />
+              <Twitter className="text-gray-600 hover:text-blue-400 cursor-pointer text-2xl" />
             </a>
             <a
               href={contact.socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LinkedIn className="text-gray-600 hover:text-blue-700 cursor-pointer text-lg" />
+              <LinkedIn className="text-gray-600 hover:text-blue-700 cursor-pointer text-2xl" />
             </a>
             <a
               href={contact.socialLinks.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <WhatsApp className="text-gray-600 hover:text-green-500 cursor-pointer text-lg" />
+              <WhatsApp className="text-gray-600 hover:text-green-500 cursor-pointer text-2xl" />
             </a>
           </>
         ) : (
@@ -179,10 +175,13 @@ function Footer() {
         )}
       </div>
 
-      <div className="flex justify-between items-center text-gray-600 text-sm mt-4 border-t pt-4 px-6">
-        <p>2025 © TheSkyIt. All rights reserved</p>
-        <p className="mr-15">
-          Developed by <span style={{ color: "#96be25" }}>TheSkyIt</span>
+      {/* Footer Bottom */}
+      <div className="flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm mt-6 border-t pt-4 px-4 md:px-6">
+        <p className="text-center md:text-left">
+          2025 © TheSkyIt. All rights reserved
+        </p>
+        <p className="text-center md:text-right">
+          Developed by <span className="text-[#96be25]">TheSkyIt</span>
         </p>
       </div>
 

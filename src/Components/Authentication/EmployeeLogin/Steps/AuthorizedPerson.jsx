@@ -1,4 +1,6 @@
 import { useState } from "react";
+import InputField from "../../../../Common/InputField";
+import TitledCard from "../../../../Common/Card/TitledCard";
 
 const AuthorizedPerson = ({ formData, handleChange }) => {
   const [errors, setErrors] = useState({});
@@ -24,114 +26,107 @@ const AuthorizedPerson = ({ formData, handleChange }) => {
   };
 
   return (
-    <div className="space-y-4">
-      <div>
-        <input
-          type="text"
+    <TitledCard title="Authorized Person Details">
+      <div className="flex flex-row gap-4">
+        <InputField
+          label="First Name"
+          required
           name="authorizedFirstName"
           placeholder="First Name"
-          className="input border-0 bg-gray-100 w-full"
+          value={formData.authorizedFirstName}
           onChange={(e) => {
             handleChange(e);
             validateInput(e);
           }}
-          value={formData.authorizedFirstName}
-          required
         />
-        {errors.authorizedFirstName && <h3 className="text-red-500">{errors.authorizedFirstName}</h3>}
-      </div>
-      <div>
-        <input
-          type="text"
+        {errors.authorizedFirstName && (
+          <h3 className="text-red-500">{errors.authorizedFirstName}</h3>
+        )}
+        <InputField
+          label="Middle Name"
           name="authorizedMiddleName"
           placeholder="Middle Name"
-          className="input border-0 bg-gray-100 w-full"
+          value={formData.authorizedMiddleName}
           onChange={(e) => {
             handleChange(e);
             validateInput(e);
           }}
-          value={formData.authorizedMiddleName}
         />
-        {errors.authorizedMiddleName && <h3 className="text-red-500">{errors.authorizedMiddleName}</h3>}
-      </div>
-      <div>
-        <input
-          type="text"
+        {errors.authorizedMiddleName && (
+          <h3 className="text-red-500">{errors.authorizedMiddleName}</h3>
+        )}
+
+        <InputField
+          label="Last Name"
+          required
           name="authorizedLastName"
           placeholder="Last Name"
-          className="input border-0 bg-gray-100 w-full"
-          onChange={(e) => {
-            handleChange(e);
-            validateInput(e);
-          }}
           value={formData.authorizedLastName}
-          required
-        />
-        {errors.authorizedLastName && <h3 className="text-red-500">{errors.authorizedLastName}</h3>}
-      </div>
-      <div>
-        <input
-          type="text"
-          name="position"
-          placeholder="Position"
-          className="input border-0 bg-gray-100 w-full"
           onChange={(e) => {
             handleChange(e);
             validateInput(e);
           }}
-          value={formData.position}
-          required
         />
-        {errors.position && <h3 className="text-red-500">{errors.position}</h3>}
+        {errors.authorizedLastName && (
+          <h3 className="text-red-500">{errors.authorizedLastName}</h3>
+        )}
       </div>
-      <div>
-        <input
-          type="text"
-          name="country"
-          placeholder="Country"
-          className="input border-0 bg-gray-100 w-full"
-          onChange={(e) => {
-            handleChange(e);
-            validateInput(e);
-          }}
-          value={formData.country}
-          required
-        />
-        {errors.country && <h3 className="text-red-500">{errors.country}</h3>}
-      </div>
-      <div>
-        <input
-          type="tel"
-          name="phoneNumber"
-          placeholder="Phone Number"
-          className="input border-0 bg-gray-100 w-full"
-          onChange={(e) => {
-            handleChange(e);
-          }}
-          value={formData.phoneNumber}
-          required
-          maxLength="10"
-          pattern="[0-9]{10}"
-          title="Phone number should be 10 digits"
-        />
-        {errors.phoneNumber && <h3 className="text-red-500">{errors.phoneNumber}</h3>}
-      </div>
-      <div>
-        <input
-          type="email"
-          name="authorizedEmail"
-          placeholder="Email Address"
-          className="input border-0 bg-gray-100 w-full"
-          onChange={(e) => {
-            handleChange(e);
-            validateInput(e);
-          }}
-          value={formData.authorizedEmail}
-          required
-        />
-        {errors.authorizedEmail && <h3 className="text-red-500">{errors.authorizedEmail}</h3>}
-      </div>
-    </div>
+
+      <InputField
+        label="Position"
+        required
+        name="position"
+        placeholder="Position"
+        value={formData.position}
+        onChange={(e) => {
+          handleChange(e);
+          validateInput(e);
+        }}
+      />
+      {errors.position && <h3 className="text-red-500">{errors.position}</h3>}
+
+      <InputField
+        label="Phone Number"
+        required
+        name="phoneNumber"
+        type="tel"
+        placeholder="Phone Number"
+        value={formData.phoneNumber}
+        onChange={handleChange}
+      />
+      {errors.phoneNumber && (
+        <h3 className="text-red-500">{errors.phoneNumber}</h3>
+      )}
+
+      <InputField
+        label="Email Address"
+        required
+        name="authorizedEmail"
+        type="email"
+        placeholder="Email Address"
+        value={formData.authorizedEmail}
+        onChange={(e) => {
+          handleChange(e);
+          validateInput(e);
+        }}
+      />
+      {errors.authorizedEmail && (
+        <h3 className="text-red-500">{errors.authorizedEmail}</h3>
+      )}
+
+      <InputField
+        label="Country"
+        required
+        name="country"
+        placeholder="Country"
+        value={formData.country}
+        onChange={(e) => {
+          handleChange(e);
+          validateInput(e);
+        }}
+      />
+      {errors.country && <h3 className="text-red-500">{errors.country}</h3>}
+    </TitledCard>
   );
 };
 

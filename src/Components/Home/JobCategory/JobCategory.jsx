@@ -18,8 +18,8 @@ const JobCategory = () => {
             Industry
           </span>
         </div>
-        <div className="bg-gray-200 py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 bg-gray-200 p-4">
+        <div className="bg-gray-200 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-gray-200 ">
             {JobCategoryData.map((category, index) => (
               <div
                 key={index}

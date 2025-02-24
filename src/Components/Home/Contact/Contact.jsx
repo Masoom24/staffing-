@@ -18,12 +18,12 @@ const Contact = () => {
       {/* Heading Section */}
       <div className="text-center space-y-4">
         <div
-          className="relative font-extrabold text-5xl"
+          className="relative font-extrabold text-4xl"
           style={{ color: "#96BE25" }}
         >
           BUSINESS HELP SERVICE
         </div>
-        <h2 className="text-3xl font-bold text-gray-900">Need Any Help?</h2>
+        <h2 className="text-2xl font-bold text-gray-900">Need Any Help?</h2>
       </div>
 
       {/* Contact Sections */}

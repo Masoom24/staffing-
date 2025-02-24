@@ -1,4 +1,6 @@
 import { useState } from "react";
+import InputField from "../../../../Common/InputField";
+import TitledCard from "../../../../Common/Card/TitledCard";
 
 const CompanyDetails = ({ formData, handleChange }) => {
   const [errors, setErrors] = useState({});
@@ -12,119 +14,118 @@ const CompanyDetails = ({ formData, handleChange }) => {
         error = "Invalid format";
       }
     }
-    if (name !== "companyDescription" && /\d/.test(value) && name !== "companyPhone" && name !== "gstNumber") {
+    if (
+      name !== "companyDescription" &&
+      /\d/.test(value) &&
+      name !== "companyPhone" &&
+      name !== "gstNumber"
+    ) {
       error = "Numbers are not allowed";
     }
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
   return (
-    <div className="space-y-4">
-      <div>
-        <input
-          type="text"
+    <TitledCard title="Setup Company Details">
+      <div className="space-y-4">
+        <InputField
+          label="Company Name"
+          required
           name="companyName"
           placeholder="Company Name"
-          className="input border-0 bg-gray-100 w-full"
-          onChange={(e) => {
-            handleChange(e);
-            validateInput(e);
-          }}
           value={formData.companyName}
-          required
-          minLength={2}
-          maxLength={100}
+          onChange={(e) => {
+            handleChange(e);
+            validateInput(e);
+          }}
         />
-        {errors.companyName && <h3 className="text-red-500">{errors.companyName}</h3>}
-      </div>
-      <div>
-        <input
-          type="text"
+        {errors.companyName && (
+          <h3 className="text-red-500">{errors.companyName}</h3>
+        )}
+
+        <InputField
+          label="Company Description"
           name="companyDescription"
+          required
           placeholder="Company Description"
-          className="input border-0 bg-gray-100 w-full"
-          onChange={handleChange}
           value={formData.companyDescription}
-          maxLength={500}
-        />
-      </div>
-      <div>
-        <input
-          type="text"
-          name="companyAddress"
-          placeholder="Company Address"
-          className="input border-0 bg-gray-100 w-full"
-          onChange={(e) => {
-            handleChange(e);
-            validateInput(e);
-          }}
-          value={formData.companyAddress}
-          required
-        />
-        {errors.companyAddress && <h3 className="text-red-500">{errors.companyAddress}</h3>}
-      </div>
-      <div>
-        <input
-          type="tel"
-          name="companyPhone"
-          placeholder="Company Phone Number"
-          className="input border-0 bg-gray-100 w-full"
-          onChange={(e) => {
-            handleChange(e);
-            validateInput(e);
-          }}
-          value={formData.companyPhone}
-          required
-          maxLength="10"
-          pattern="[0-9]{10}"
-          title="Phone number should be 10 digits"
-        />
-        {errors.companyPhone && <h3 className="text-red-500">{errors.companyPhone}</h3>}
-      </div>
-      <div>
-        <input
-          type="email"
-          name="companyEmail"
-          placeholder="Company Email Address"
-          className="input border-0 bg-gray-100 w-full"
           onChange={handleChange}
-          value={formData.companyEmail}
-          required
         />
-      </div>
-      <div>
-        <input
-          type="text"
-          name="corporateOffice"
-          placeholder="Corporate Office"
-          className="input border-0 bg-gray-100 w-full"
-          onChange={(e) => {
-            handleChange(e);
-            validateInput(e);
-          }}
-          value={formData.corporateOffice}
-          required
-        />
-        {errors.corporateOffice && <h3 className="text-red-500">{errors.corporateOffice}</h3>}
-      </div>
-      <div>
-        <input
-          type="text"
+
+        <div className="flex flex-row gap-4">
+          <InputField
+            label="Company Email Address"
+            required
+            name="companyEmail"
+            type="email"
+            placeholder="Company Email Address"
+            value={formData.companyEmail}
+            onChange={handleChange}
+          />
+
+          <InputField
+            label="Company Phone Number"
+            required
+            name="companyPhone"
+            type="tel"
+            placeholder="Company Phone Number"
+            value={formData.companyPhone}
+            onChange={(e) => {
+              handleChange(e);
+              validateInput(e);
+            }}
+          />
+          {errors.companyPhone && (
+            <h3 className="text-red-500">{errors.companyPhone}</h3>
+          )}
+        </div>
+        <div className="flex flex-row gap-4">
+          <InputField
+            label="Company Address"
+            required
+            name="companyAddress"
+            placeholder="Company Address"
+            value={formData.companyAddress}
+            onChange={(e) => {
+              handleChange(e);
+              validateInput(e);
+            }}
+          />
+          {errors.companyAddress && (
+            <h3 className="text-red-500">{errors.companyAddress}</h3>
+          )}
+          <InputField
+            label="Corporate Office"
+            name="corporateOffice"
+            placeholder="Corporate Office"
+            value={formData.corporateOffice}
+            onChange={(e) => {
+              handleChange(e);
+              validateInput(e);
+            }}
+          />
+          {errors.corporateOffice && (
+            <h3 className="text-red-500">{errors.corporateOffice}</h3>
+          )}
+        </div>
+
+        <InputField
+          label="GST Number"
           name="gstNumber"
           placeholder="GST Number"
-          className="input border-0 bg-gray-100 w-full"
+          value={formData.gstNumber}
           onChange={(e) => {
             handleChange(e);
             validateInput(e);
           }}
-          value={formData.gstNumber}
-          required
-          pattern="[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}"
-          title="Enter a valid GST Number (e.g., 22AAAAA0000A1Z5)"
         />
-        {errors.gstNumber && <h3 className="text-red-500">{errors.gstNumber}! Follow this pattern 22AAAAA0000A1Z5</h3>}
+        {errors.gstNumber && (
+          <h3 className="text-red-500">
+            {errors.gstNumber}! Follow this pattern 22AAAAA0000A1Z5
+          </h3>
+        )}
       </div>
-    </div>
+    </TitledCard>
   );
 };
 

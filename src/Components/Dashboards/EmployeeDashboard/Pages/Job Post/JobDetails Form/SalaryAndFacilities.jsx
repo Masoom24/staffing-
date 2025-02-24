@@ -1,5 +1,6 @@
 import React from "react";
 import InputField from "../../../../../../Common/InputField";
+import TitledCard from "../../../../../../Common/Card/TitledCard";
 
 const SalaryAndFacilities = ({ jobDetails, setJobDetails }) => {
   const handleChange = (e) => {
@@ -8,41 +9,40 @@ const SalaryAndFacilities = ({ jobDetails, setJobDetails }) => {
   };
 
   return (
-    <form style={{ maxWidth: "none" }}>
-      <h1 className="pb-4">Salary and Facilities</h1>
-
-      <InputField
-        label="Facilities"
-        name="facilities"
-        value={jobDetails.facilities}
-        onChange={handleChange}
-        placeholder="Enter Facilities"
-      />
-      <div className="flex flex-row gap-4">
+    <TitledCard title="Salary and Facilities">
+      <form style={{ maxWidth: "none" }}>
         <InputField
-          label="CTC Salary"
-          name="ctcSalary"
-          value={jobDetails.ctcSalary}
+          label="Facilities"
+          name="facilities"
+          value={jobDetails.facilities}
           onChange={handleChange}
-          placeholder="Enter CTC Salary"
+          placeholder="Enter Facilities"
         />
+        <div className="flex flex-row gap-4">
+          <InputField
+            label="CTC Salary"
+            name="ctcSalary"
+            value={jobDetails.ctcSalary}
+            onChange={handleChange}
+            placeholder="Enter CTC Salary"
+          />
+          <InputField
+            label="In Hand Salary"
+            name="inHandSalary"
+            value={jobDetails.inHandSalary}
+            onChange={handleChange}
+            placeholder="Enter In Hand Salary"
+          />
+        </div>
         <InputField
-          label="In Hand Salary"
-          name="inHandSalary"
-          value={jobDetails.inHandSalary}
+          label="Salary Deduction Details"
+          name="salaryDeductions"
+          value={jobDetails.salaryDeductions}
           onChange={handleChange}
-          placeholder="Enter In Hand Salary"
+          placeholder="Enter Deduction Details"
         />
-      </div>
-
-      <InputField
-        label="Salary Deduction Details"
-        name="salaryDeductions"
-        value={jobDetails.salaryDeductions}
-        onChange={handleChange}
-        placeholder="Enter Deduction Details"
-      />
-    </form>
+      </form>
+    </TitledCard>
   );
 };
 

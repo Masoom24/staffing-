@@ -1,19 +1,22 @@
+import TitledCard from "../../../../Common/Card/TitledCard";
 const Preview = ({ formData }) => {
-    return (
+  return (
+    <TitledCard title={"Preview Details"}>
       <table className="table w-full">
-        <tbody>
+        <tbody className="text-xs">
           {Object.entries(formData).map(([key, value]) => (
-            <tr key={key} className="border-b">
-              <td className="font-semibold capitalize p-2">
+            <tr key={key} className="">
+              <td className="font-semibold capitalize">
                 {key.replace(/([A-Z])/g, " $1")}
               </td>
+              <td>:</td>
               <td className="p-2">{value}</td>
             </tr>
           ))}
         </tbody>
       </table>
-    );
-  };
-  
-  export default Preview;
-  
+    </TitledCard>
+  );
+};
+
+export default Preview;

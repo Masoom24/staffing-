@@ -4,7 +4,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { Email, Phone, Home, Create } from "@mui/icons-material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
-import CreateCard from "../../../../../Common/CreateCard";
+import TitledCard from "../../../../../Common/Card/TitledCard";
 
 function MyProfile({ handleTabChange }) {
   const mockData = {
@@ -35,7 +35,7 @@ function MyProfile({ handleTabChange }) {
         </UIButton>
       </div>
 
-      <CreateCard
+      <TitledCard
         title={
           <>
             {" "}
@@ -78,10 +78,10 @@ function MyProfile({ handleTabChange }) {
             </div>
           </div>
         </div>
-      </CreateCard>
+      </TitledCard>
 
       <div className="mt-4">
-        <CreateCard
+        <TitledCard
           title={
             <>
               <RecordVoiceOverIcon /> Authorised Person
@@ -106,7 +106,7 @@ function MyProfile({ handleTabChange }) {
               <div>{autherisedPerson.personEmail}</div>
             </div>
           </div>
-        </CreateCard>
+        </TitledCard>
       </div>
     </div>
   );

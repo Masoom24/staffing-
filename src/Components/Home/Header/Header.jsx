@@ -46,17 +46,13 @@ const Header = () => {
       className="relative w-full min-h-[500px] flex flex-col items-center justify-center bg-cover bg-center text-black px-4"
       style={{ backgroundImage: `url(${img})` }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 bg-black/50"></div>
 
-      {/* Content */}
       <div className="relative z-10 w-full max-w-5xl text-center">
-        <h1 className="text-4xl font-bold mb-6 text-white">Search Your Jobs</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-white">Search Your Jobs</h1>
 
-        {/* Search Bar */}
-        <div className="flex flex-col md:flex-row items-center bg-transparant sm:bg-white p-4 rounded-full shadow-md gap-4 w-full">
-          {/* Skills Input */}
-          <div className="flex items-center bg-white rounded-full flex-1 gap-2 w-full">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center bg-white p-4 rounded-md sm:rounded-full shadow-md gap-4 w-full max-w-4xl mx-auto">
+          <div className="flex items-center bg-white rounded-full flex-1 gap-2 w-full px-3 border border-gray-300">
             <SearchIcon className="text-gray-500" />
             <Select
               options={technicalSkills}
@@ -69,17 +65,16 @@ const Header = () => {
                   ...base,
                   borderRadius: "9999px",
                   borderColor: "white",
-                  minHeight: "50px",
-                  
+                  minHeight: "45px",
+                  boxShadow: "none",
                 }),
               }}
               className="w-full"
             />
           </div>
 
-          {/* Experience Dropdown */}
           <select
-            className="w-full md:w-[12rem] h-[50px] bg-white px-4 border border-gray-300 rounded-full focus:outline-none"
+            className="w-full sm:w-[12rem] h-[45px] bg-white px-4 border border-gray-300 rounded-full focus:outline-none"
             value={experience}
             onChange={(e) => setExperience(e.target.value)}
           >
@@ -91,9 +86,8 @@ const Header = () => {
             ))}
           </select>
 
-          {/* Location Dropdown */}
           <select
-            className="w-full md:w-[12rem] bg-white h-[50px] px-4 border border-gray-300 rounded-full focus:outline-none"
+            className="w-full sm:w-[12rem] bg-white h-[45px] px-4 border border-gray-300 rounded-full focus:outline-none"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           >
@@ -111,8 +105,8 @@ const Header = () => {
             style={{
               width: "100%",
               maxWidth: "180px",
-              height: "50px",
-              backgroundColor: "#96BE25 ",
+              height: "45px",
+              backgroundColor: "#96BE25",
               color: "white",
               fontWeight: "bold",
               borderRadius: "50px",

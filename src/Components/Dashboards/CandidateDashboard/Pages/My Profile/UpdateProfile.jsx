@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import UIButton from "../../../../../Common/UIButton";
 import InputField from "../../../../../Common/InputField";
+import TitledCard from "../../../../../Common/Card/TitledCard";
 import { Person, Home, Work, Search } from "@mui/icons-material";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 function UpdateProfile({ handleTabChange }) {
   const [countries, setCountries] = useState([]);
-  const [profileImage, setProfileImage] = useState("https://img.freepik.com/premium-vector/cloud-upload-icon-green-background-white-arrow-vector-symbol_797523-4164.jpg?uid=R65975106&ga=GA1.1.924684660.1738927689&semt=ais_hybrid");
+  const [profileImage, setProfileImage] = useState(
+    "https://img.freepik.com/premium-vector/cloud-upload-icon-green-background-white-arrow-vector-symbol_797523-4164.jpg?uid=R65975106&ga=GA1.1.924684660.1738927689&semt=ais_hybrid"
+  );
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
@@ -30,17 +33,21 @@ function UpdateProfile({ handleTabChange }) {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 gap-4 flex flex-col">
       <div className="mb-4 flex justify-end">
         <UIButton onClick={() => handleTabChange("My Profile")}>
           <AccountCircleOutlinedIcon className="mr-2" />
           My Profile
         </UIButton>
       </div>
-      <div className="card card-body bg-white mb-4 p-4">
-        <h1 className="card-title flex items-center text-lg font-semibold mb-4">
-          <Person className="mr-2" /> Basic Details
-        </h1>
+
+      <TitledCard
+        title={
+          <>
+            <Person className="mr-2" /> Basic Details
+          </>
+        }
+      >
         <div className="flex flex-col md:flex-row md:gap-6">
           <div>
             <div className="flex items-center justify-center">
@@ -125,12 +132,15 @@ function UpdateProfile({ handleTabChange }) {
             </div>
           </div>
         </div>
-      </div>
+      </TitledCard>
 
-      <div className="card card-body bg-white mb-4 p-4">
-        <h1 className="card-title flex items-center text-lg font-semibold mb-4">
-          <Home className="mr-2" /> Address
-        </h1>
+      <TitledCard
+        title={
+          <>
+            <Home className="mr-2" /> Address
+          </>
+        }
+      >
         <InputField label="Address Line 1" required />
         <InputField label="Address Line 2" />
         <div className="flex flex-col sm:flex-row sm:gap-4">
@@ -149,12 +159,15 @@ function UpdateProfile({ handleTabChange }) {
             required
           />
         </div>
-      </div>
+      </TitledCard>
 
-      <div className="card card-body bg-white mb-4 p-4">
-        <h1 className="card-title flex items-center text-lg font-semibold mb-4">
-          <Work className="mr-2" /> Professional Details
-        </h1>
+      <TitledCard
+        title={
+          <>
+            <Work className="mr-2" /> Professional Details
+          </>
+        }
+      >
         <InputField
           type="dropdown"
           label="Highest Qualification"
@@ -177,12 +190,15 @@ function UpdateProfile({ handleTabChange }) {
           <InputField label="PF Number" placeholder="PF Number" />
           <InputField label="ESIC Number" placeholder="ESIC Number" />
         </div>
-      </div>
+      </TitledCard>
 
-      <div className="card card-body bg-white mb-4 p-4">
-        <h1 className="card-title flex items-center text-lg font-semibold mb-4">
-          <Search className="mr-2" /> Job Search Requirement
-        </h1>
+      <TitledCard
+        title={
+          <>
+            <Search className="mr-2" /> Job Search Requirement
+          </>
+        }
+      >
         <div className="flex flex-col sm:flex-row sm:gap-4">
           <InputField
             type="select"
@@ -196,15 +212,15 @@ function UpdateProfile({ handleTabChange }) {
               "FullTime(12HRS)",
               "FullTime(8HRS)",
               "Part Time",
-              "Night Sift",
-              "Day shift",
+              "Night Shift",
+              "Day Shift",
             ]}
           />
           <InputField type="text" label="Expected Salary ₹ (In Hand CTC)" />
         </div>
-      </div>
+      </TitledCard>
 
-      <div className="card card-body bg-white flex flex-col items-center p-4">
+      <div className="flex justify-center mt-4">
         <UIButton>Update Profile</UIButton>
       </div>
     </div>

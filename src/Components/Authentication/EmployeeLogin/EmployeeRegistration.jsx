@@ -6,30 +6,25 @@ import LoginDetails from "./Steps/LoginDetails";
 import Preview from "./Steps/Preview";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import UIButton from "../../../Common/UIButton";
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const EmployeeRegistration = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    companyName: "",
-    companyDescription: "",
-    companyAddress: "",
-    companyPhone: "",
-    companyEmail: "",
-    corporateOffice: "",
-    gstNumber: "",
-    authorizedFirstName: "",
-    authorizedMiddleName: "",
-    authorizedLastName: "",
-    position: "",
-    country: "",
-    phoneNumber: "",
-    authorizedEmail: "",
-    loginNumber: "",
-    loginEmail: "",
+    companyName: "The Sky IT",
+    companyDescription: "Software Development Company",
+    companyEmail: "theskyit@gmail.com",
+    companyPhone: "9876541230",
+    companyAddress: "Mumbai",
+    authorizedFirstName: "Ghamesh",
+    authorizedMiddleName: "R",
+    authorizedLastName: "Rahangdale",
+    position: "Frontend Developer",
+    country: "India",
+    phoneNumber: "9874563210",
+    authorizedEmail: "ghamesh@theskyit.com",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,14 +38,11 @@ const EmployeeRegistration = () => {
     setStep(step - 1);
   };
 
+  //Handle Employee Registration 
   const RegisterEmployee = () => {
-    // API endpoint to register employee
-    // This function will be called when the user clicks on the "Register" button
     alert("Employee Registered");
-    setFormData("");
+    navigate("/employee/Dashboard")
   };
-
-  const navigate = useNavigate();
 
   const validateStep = (currentStep) => {
     switch (currentStep) {
@@ -78,13 +70,28 @@ const EmployeeRegistration = () => {
   };
 
   return (
-    <div className="flex h-screen">
-      <div style={{ backgroundColor: "#96BE25" }} className="w-1/4 p-6">
+    <div className="flex flex-col md:flex-row h-screen">
+      {/* Mobile Steps - Visible on Small Screens */}
+      <div className="md:hidden w-full bg-gray-100 p-4">
+        <ul className="steps steps-horizontal text-black font-bold">
+          <li className={`step ${step >= 1 ? "step-neutral" : ""}`}>Company</li>
+          <li className={`step ${step >= 2 ? "step-neutral" : ""}`}>
+            Authorized
+          </li>
+          <li className={`step ${step >= 3 ? "step-neutral" : ""}`}>Login</li>
+          <li className={`step ${step === 4 ? "step-neutral" : ""}`}>
+            Preview
+          </li>
+        </ul>
+      </div>
+
+      {/* Sidebar - Hidden on Mobile */}
+      <div
+        style={{ backgroundColor: "#96BE25" }}
+        className="hidden md:block md:w-1/5 fixed h-screen p-6"
+      >
         <div className="flex justify-between">
-          <h1 className=" mb-4 text-xl text-white font-bold">Team SkyIT</h1>
-          <label htmlFor="my-drawer-2" className="btn btn-ghost text-white">
-            <KeyboardDoubleArrowLeftIcon />
-          </label>
+          <h1 className="mb-4 text-xl text-white font-bold">Team SkyIT</h1>
         </div>
         <ul className="steps text-white font-bold steps-vertical mt-6">
           <li className={`step ${step >= 1 ? "step-neutral" : ""}`}>
@@ -100,25 +107,19 @@ const EmployeeRegistration = () => {
             Preview
           </li>
         </ul>
-          <h1 className="mt-6 text-left text-white text-sm">
-            Already have an account?{" "}
-            <a href="/employee/Login" className="text-blue-600">
-              Login
-            </a>
-          </h1>
+        <h1 className="mt-6 text-left text-white text-sm">
+          Already have an account?{" "}
+          <a href="/employee/Login" className="text-blue-600">
+            Login
+          </a>
+        </h1>
       </div>
 
-      <div className="w-3/4 p-8">
-        <h2 className="text-xl font-semibold mb-4">
-          {step === 1
-            ? "Setup Your Company Details"
-            : step === 2
-            ? "Setup Your Personal Details"
-            : step === 3
-            ? "Your Login Credentials"
-            : "Preview Your Details"}
-        </h2>
-
+      {/* Main Content */}
+      <div
+        className="w-full md:w-4/5 ml-auto p-4 bg-gray-200 "
+        style={{ height: "100%" }}
+      >
         {step === 1 && (
           <CompanyDetails formData={formData} handleChange={handleChange} />
         )}
@@ -130,6 +131,7 @@ const EmployeeRegistration = () => {
         )}
         {step === 4 && <Preview formData={formData} />}
 
+        {/* Navigation Buttons */}
         <div className="flex justify-end mt-6 space-x-4">
           {step > 1 && <UIButton onClick={prevStep}>Previous</UIButton>}
           {step < 4 && <UIButton onClick={nextStep}>Continue</UIButton>}
@@ -137,15 +139,6 @@ const EmployeeRegistration = () => {
             <UIButton onClick={RegisterEmployee}>Register</UIButton>
           )}
         </div>
-
-        {/* Footer */}
-        <footer className="footer sm:footer-horizontal footer-center bg-white text-base-content p-4 ">
-          <p>
-            {" "}
-            © {new Date().getFullYear()} Client Staffing Developed by - The
-            SkyIT
-          </p>
-        </footer>
       </div>
     </div>
   );

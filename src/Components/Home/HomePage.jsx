@@ -10,21 +10,21 @@ import {
   Work as EmployeeIcon,
 } from "@mui/icons-material";
 import UIButton from "../../Common/UIButton";
-import Header from "./Header/Header"
-import JobCategory from "./JobCategory/JobCategory"
+import Header from "./Header/Header";
+import JobCategory from "./JobCategory/JobCategory";
 import LatestJobs from "./LatestJobs/LatestJobs";
-import Footer from "./Footer/Footer"
-import Download from "./Download/Download"
-import ClientLogo from "./ClientSection/ClientLogo"
-import Contact from "./Contact/Contact"
+import Footer from "./Footer/Footer";
+import Download from "./Download/Download";
+import ClientLogo from "./ClientSection/ClientLogo";
+import Contact from "./Contact/Contact";
 
 const HomePage = () => {
   const navigate = useNavigate();
 
   return (
     <div className="main-layout bg-gray-200 h-screen">
-      {/* Header */}
-      <div className="card-body flex flex-row mb-2 bg-white shadow-lg justify-between items-center w-full pt-4 pb-4 lg:hidden">
+   
+      {/* <div className="card-body flex flex-row mb-2 bg-white shadow-lg justify-between items-center w-full pt-4 pb-4 lg:hidden">
         <div>
           <h1 className="card-title text-sm">Home</h1>
         </div>
@@ -32,13 +32,15 @@ const HomePage = () => {
           <VideoCallIcon className="mr-2" />
           <NotificationsActiveIcon />
         </div>
-      </div>
+      </div> */}
 
       {/* Navbar */}
-      <div className="navbar bg-base-100 shadow-sm px-4 py-4 ">
+      <div className="navbar bg-base-100 shadow-sm px-4 py-4 sticky top-0 z-50">
         <div className="flex-1">
           <h1 className="text-xl font-bold">
-            <a href="/">Clinet<span className="text-[#96BE25]">Staffing</span></a>
+            <a href="/">
+              Clinet<span className="text-[#96BE25]">Staffing</span>
+            </a>
           </h1>
         </div>
         <div className="flex space-x-2">
@@ -63,17 +65,17 @@ const HomePage = () => {
       </div>
 
       <div className="main-contain">
-        <Header/>
-        <JobCategory/>
-        <LatestJobs/>
-        <Download/>
-        <ClientLogo/>
-        <Contact/>
-        <Footer/>
+        <Header />
+        <JobCategory />
+        <LatestJobs />
+        <Download />
+        <ClientLogo />
+        <Contact />
+        <Footer />
       </div>
 
       {/* Bottom Navigation */}
-      <div className="dock dock-sm border-black lg:hidden">
+      {/* <div className="dock dock-sm border-black lg:hidden">
         <button>
           <Home />
           <span>Home</span>
@@ -94,7 +96,7 @@ const HomePage = () => {
           <Settings />
           <span className="text-sm">Settings</span>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
