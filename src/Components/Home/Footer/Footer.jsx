@@ -48,7 +48,7 @@ function Footer() {
       <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
         {/* Logo & Play Store */}
         <div className="flex flex-col items-center md:items-start">
-          <h2 className="text-2xl font-bold">The Sky It</h2>
+          <h2 className="text-2xl font-bold">Masoom Yadav</h2>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png"
             alt="Google Play Store"
@@ -178,10 +178,10 @@ function Footer() {
       {/* Footer Bottom */}
       <div className="flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm mt-6 border-t pt-4 px-4 md:px-6">
         <p className="text-center md:text-left">
-          2025 © TheSkyIt. All rights reserved
+          2025 © . All rights reserved
         </p>
         <p className="text-center md:text-right">
-          Developed by <span className="text-[#96be25]">TheSkyIt</span>
+          Developed by <span className="text-[#96be25]">Masoom Yadav</span>
         </p>
       </div>
 

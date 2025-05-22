@@ -12,16 +12,16 @@ const EmployeeRegistration = () => {
   const [formData, setFormData] = useState({
     companyName: "The Sky IT",
     companyDescription: "Software Development Company",
-    companyEmail: "theskyit@gmail.com",
+    companyEmail: "masoomyadav@gmail.com",
     companyPhone: "9876541230",
-    companyAddress: "Mumbai",
+    companyAddress: "Indore",
     authorizedFirstName: "Ghamesh",
     authorizedMiddleName: "R",
     authorizedLastName: "Rahangdale",
     position: "Frontend Developer",
     country: "India",
     phoneNumber: "9874563210",
-    authorizedEmail: "ghamesh@theskyit.com",
+    authorizedEmail: "masoom@gmail.com",
     password: "",
   });
   const navigate = useNavigate();

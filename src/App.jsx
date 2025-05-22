@@ -37,7 +37,7 @@ function App() {
           element={<EmployeeRegistration />}
         />
         <Route path="/employee/Dashboard" element={<EmployeeDashboard />} />
-
+        
         {/* Admin */}
         <Route path="/admin/Login" element={<AdminLogin />} />
         <Route path="/admin/Dashboard" element={<AdminDashboard />} />

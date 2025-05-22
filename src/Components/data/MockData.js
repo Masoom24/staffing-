@@ -170,12 +170,10 @@ export const LatestJob = [
   },
 ];
 
-
 export const ContactUs = {
   phoneNumbers: ["+91 9999999999", "+91 8888888888", "+91 7777777777"],
-  emails: ["job@theskyit.in", "bdm@theskyit.in"],
-  address:
-    "1263, The Corporate Park, Plot 14, Sector 18, Vashi, Navi Mumbai, Maharashtra 400703",
+  emails: ["msoomyadav@gmail.com"],
+  address: "Bhawarkua Indore madhya pradesh",
   socialLinks: {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",
